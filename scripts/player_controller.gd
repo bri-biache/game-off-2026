@@ -32,6 +32,8 @@ func _input(event: InputEvent) -> void:
 		var collider: Node = character.ray_cast.get_collider()
 		if collider and collider.is_in_group("playable_characters"):
 			character_manager.add_party_member(character, collider)
+	elif event.is_action_pressed("remove_party"):
+		character_manager.remove_from_parties(character)
 
 func _physics_process(_delta: float) -> void:
 	var input_direction: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")

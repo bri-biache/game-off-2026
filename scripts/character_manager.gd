@@ -47,7 +47,16 @@ func update_character_collision_layers() -> void:
 		else:
 			character.set_collision_layer_value(3, true)
 
+func remove_from_parties(member: PlayableCharacter):
+	for character in characters:
+		character.remove_party_member(member)
+	member.reset_party()
+
 func add_party_member(leader: PlayableCharacter, new_member: PlayableCharacter) -> void:
-	new_member.leave_party()
-	new_member.join_party(leader.party)
-	leader.add_party_member(new_member)
+	remove_from_parties(new_member)
+	var leader_party: Array[PlayableCharacter] = leader.party.duplicate()
+	for member in leader_party:
+		print("MEMBER")
+		print(member)
+		member.add_party_member(new_member)
+	new_member.add_party(leader_party)

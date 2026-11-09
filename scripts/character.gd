@@ -18,11 +18,11 @@ func add_party_member(new_member: PlayableCharacter) -> void:
 func remove_party_member(leaving_member: PlayableCharacter) -> void:
 	party.erase(leaving_member)
 
-func join_party(new_party: Array[PlayableCharacter]) -> void:
+func add_party(new_party: Array[PlayableCharacter]) -> void:
+	print(self)
+	print("is joining")
+	print(new_party)
 	party.append_array(new_party)
 
-func leave_party() -> void:
-	var party_members: Array[PlayableCharacter] = party.duplicate()
-	for character in party_members:
-		character.remove_party_member(self)
+func reset_party() -> void:
 	party = [self]
