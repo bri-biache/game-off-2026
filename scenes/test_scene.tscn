@@ -15,9 +15,10 @@ position = Vector2(492, 72)
 scale = Vector2(15.719963, 13.933183)
 texture = ExtResource("1_7ddre")
 
-[node name="CharacterManager" type="Node" parent="." unique_id=552836033 node_paths=PackedStringArray("player_controller")]
+[node name="CharacterManager" type="Node" parent="." unique_id=552836033 node_paths=PackedStringArray("player_controller", "initial_character")]
 script = ExtResource("1_nd71p")
 player_controller = NodePath("../Character1/PlayerController")
+initial_character = NodePath("../Character1")
 
 [node name="ShiftMenu" type="Control" parent="CharacterManager" unique_id=30976531]
 layout_mode = 3
