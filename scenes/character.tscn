@@ -13,6 +13,7 @@ metadata/_custom_type_script = "uid://uvr1j0em8q5u"
 size = Vector2(62, 62)
 
 [node name="Character" type="CharacterBody2D" unique_id=1264062262 groups=["playable_characters"]]
+collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_6r27q")
 stats = SubResource("Resource_6r27q")
@@ -23,3 +24,7 @@ texture = ExtResource("1_56udc")
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=976056343]
 shape = SubResource("RectangleShape2D_b4ekb")
+
+[node name="RayCast" type="RayCast2D" parent="." unique_id=411409412]
+target_position = Vector2(0, 90)
+collision_mask = 4

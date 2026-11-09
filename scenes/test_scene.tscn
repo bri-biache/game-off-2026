@@ -1,10 +1,19 @@
 [gd_scene format=3 uid="uid://co8gbtr0r32l0"]
 
+[ext_resource type="Texture2D" uid="uid://dyuavscksou4u" path="res://icon.svg" id="1_7ddre"]
 [ext_resource type="PackedScene" uid="uid://brkd53f4h7jm2" path="res://scenes/character.tscn" id="1_g7g4h"]
 [ext_resource type="Script" uid="uid://xrlce63cg4yh" path="res://scripts/character_manager.gd" id="1_nd71p"]
 [ext_resource type="Script" uid="uid://dspbr1k1t16qe" path="res://scripts/player_controller.gd" id="2_j8ivh"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b4ekb"]
+size = Vector2(123, 123)
+
 [node name="TestScene" type="Node2D" unique_id=2031182739]
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=783261123]
+position = Vector2(492, 72)
+scale = Vector2(15.719963, 13.933183)
+texture = ExtResource("1_7ddre")
 
 [node name="CharacterManager" type="Node" parent="." unique_id=552836033 node_paths=PackedStringArray("player_controller")]
 script = ExtResource("1_nd71p")
@@ -35,3 +44,15 @@ script = ExtResource("2_j8ivh")
 [node name="Character2" parent="." unique_id=2076094643 instance=ExtResource("1_g7g4h")]
 modulate = Color(0.9333333, 1, 0, 1)
 position = Vector2(190, 165)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=173214545]
+position = Vector2(322, 84)
+collision_layer = 5
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=215442513]
+texture = ExtResource("1_7ddre")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1552626846]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_b4ekb")
