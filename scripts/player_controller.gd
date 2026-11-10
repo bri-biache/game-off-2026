@@ -39,5 +39,13 @@ func _physics_process(_delta: float) -> void:
 	var input_direction: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	character.velocity = input_direction * SPEED
 	character.move_and_slide()
+	if character.velocity != Vector2.ZERO:
+		character.position_tracker.pop_back()
+		character.position_tracker.push_front(character.position)
+		if character.party.size() > 1:
+			character.party[1].position = character.position_tracker[32]
+		if character.party.size() > 2:
+			character.party[2].position = character.position_tracker[63]
+
 func update_character():
 	character = get_parent()

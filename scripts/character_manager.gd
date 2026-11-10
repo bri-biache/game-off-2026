@@ -56,7 +56,5 @@ func add_party_member(leader: PlayableCharacter, new_member: PlayableCharacter) 
 	remove_from_parties(new_member)
 	var leader_party: Array[PlayableCharacter] = leader.party.duplicate()
 	for member in leader_party:
-		print("MEMBER")
-		print(member)
 		member.add_party_member(new_member)
 	new_member.add_party(leader_party)

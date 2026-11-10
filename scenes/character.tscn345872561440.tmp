@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://brkd53f4h7jm2"]
+
+[ext_resource type="Script" uid="uid://crghuemk174j2" path="res://scripts/character.gd" id="1_6r27q"]
+[ext_resource type="Texture2D" uid="uid://dyuavscksou4u" path="res://icon.svg" id="1_56udc"]
+[ext_resource type="Curve" uid="uid://d0ie7apkpv6n" path="res://resources/stat_curves/player.tres" id="2_4h0vy"]
+[ext_resource type="Script" uid="uid://uvr1j0em8q5u" path="res://scripts/resources/stats.gd" id="2_kww55"]
+
+[sub_resource type="Resource" id="Resource_6r27q"]
+script = ExtResource("2_kww55")
+metadata/_custom_type_script = "uid://uvr1j0em8q5u"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b4ekb"]
+size = Vector2(62, 62)
+
+[node name="Character" type="CharacterBody2D" unique_id=1264062262 groups=["playable_characters"]]
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("1_6r27q")
+stats = SubResource("Resource_6r27q")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1846633373]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_56udc")
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=976056343]
+shape = SubResource("RectangleShape2D_b4ekb")
+
+[node name="RayCast" type="RayCast2D" parent="." unique_id=411409412]
+target_position = Vector2(0, 90)
+collision_mask = 4
