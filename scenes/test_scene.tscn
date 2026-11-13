@@ -4,6 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://brkd53f4h7jm2" path="res://scenes/character.tscn" id="1_g7g4h"]
 [ext_resource type="Script" uid="uid://xrlce63cg4yh" path="res://scripts/character_manager.gd" id="1_nd71p"]
 [ext_resource type="Script" uid="uid://dspbr1k1t16qe" path="res://scripts/player_controller.gd" id="2_j8ivh"]
+[ext_resource type="Script" uid="uid://c5eig16ykmtnt" path="res://scripts/resources/weapon.gd" id="4_qjeyg"]
+
+[sub_resource type="Resource" id="Resource_7ddre"]
+script = ExtResource("4_qjeyg")
+metadata/_custom_type_script = "uid://c5eig16ykmtnt"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b4ekb"]
 size = Vector2(123, 123)
@@ -38,6 +43,7 @@ layout_mode = 2
 
 [node name="Character1" parent="." unique_id=1264062262 instance=ExtResource("1_g7g4h")]
 position = Vector2(60, 53)
+weapon = SubResource("Resource_7ddre")
 
 [node name="PlayerController" type="Node" parent="Character1" unique_id=1450404110]
 script = ExtResource("2_j8ivh")

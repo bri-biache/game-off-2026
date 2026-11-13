@@ -27,7 +27,7 @@ func _input(event: InputEvent) -> void:
 			character.set_direction(Vector2.DOWN)
 	
 	elif event.is_action_pressed("interact"):
-		print(character.party)
+		print(character.stats.current_stats[Stats.ATTACK])
 	elif event.is_action_pressed("quick_party"):
 		var collider: Node = character.ray_cast.get_collider()
 		if collider and collider.is_in_group("playable_characters"):
