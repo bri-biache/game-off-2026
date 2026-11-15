@@ -1,5 +1,5 @@
 class_name StatAddend
-extends StatMod
+extends StatModifier
 
 @export var value: int = 0
 

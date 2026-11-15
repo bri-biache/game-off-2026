@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://brkd53f4h7jm2" path="res://scenes/character.tscn" id="1_g7g4h"]
 [ext_resource type="Script" uid="uid://xrlce63cg4yh" path="res://scripts/character_manager.gd" id="1_nd71p"]
 [ext_resource type="Script" uid="uid://dspbr1k1t16qe" path="res://scripts/player_controller.gd" id="2_j8ivh"]
-[ext_resource type="Script" uid="uid://dk7yljg0i1k26" path="res://scripts/resources/stat_addend.gd" id="4_3qnke"]
-[ext_resource type="Script" uid="uid://c5eig16ykmtnt" path="res://scripts/resources/weapon.gd" id="5_wtsjf"]
+[ext_resource type="Script" uid="uid://dk7yljg0i1k26" path="res://scripts/resources/stat_modifier/stat_addend.gd" id="4_3qnke"]
+[ext_resource type="Script" uid="uid://c5eig16ykmtnt" path="res://scripts/resources/item/weapon.gd" id="5_wtsjf"]
 
 [sub_resource type="Resource" id="Resource_icsu0"]
 script = ExtResource("4_3qnke")

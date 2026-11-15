@@ -1,4 +1,4 @@
 class_name StatMultiplier
-extends StatMod
+extends StatModifier
 
 @export var value: float = 0.0
