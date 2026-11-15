@@ -33,9 +33,9 @@ func reset_party() -> void:
 	party = [self]
 
 func update_stats() -> void:
-	for modifier in stats.stat_modifiers:
-		modifier.reset_addends()
-		modifier.reset_multipliers()
+	#for modifier in stats.stat_modifiers:
+	#	modifier.reset_addends()
+	#	modifier.reset_multipliers()
 	if weapon:
-		stats.stat_modifiers[Stats.Type.ATTACK].add_addend(weapon.attack)
+		stats.add_addend(Stats.Type.ATTACK, weapon.attack)
 	stats.calculate_stats()

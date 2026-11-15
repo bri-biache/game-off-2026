@@ -4,30 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://dyuavscksou4u" path="res://icon.svg" id="1_56udc"]
 [ext_resource type="Script" uid="uid://uvr1j0em8q5u" path="res://scripts/resources/stats.gd" id="2_kww55"]
 [ext_resource type="Curve" uid="uid://d0ie7apkpv6n" path="res://resources/stat_curves/player.tres" id="3_my7n2"]
-[ext_resource type="Script" uid="uid://dwk26sgm2pki0" path="res://scripts/resources/charm.gd" id="4_0lw5n"]
-[ext_resource type="Script" uid="uid://bw6qa1xuv7fc" path="res://scripts/resources/stat_mod.gd" id="5_2cgup"]
-[ext_resource type="Script" uid="uid://dk7yljg0i1k26" path="res://scripts/resources/stat_addend.gd" id="6_a5ia6"]
-[ext_resource type="Script" uid="uid://c8e0aqtqm7b31" path="res://scripts/resources/stat_multiplier.gd" id="7_0dpix"]
 
 [sub_resource type="Resource" id="Resource_6r27q"]
 script = ExtResource("2_kww55")
 metadata/_custom_type_script = "uid://uvr1j0em8q5u"
-
-[sub_resource type="Resource" id="Resource_2cgup"]
-script = ExtResource("6_a5ia6")
-value = 8
-modified_stat = 1
-metadata/_custom_type_script = "uid://dk7yljg0i1k26"
-
-[sub_resource type="Resource" id="Resource_a5ia6"]
-script = ExtResource("7_0dpix")
-value = 0.2
-metadata/_custom_type_script = "uid://c8e0aqtqm7b31"
-
-[sub_resource type="Resource" id="Resource_my7n2"]
-script = ExtResource("4_0lw5n")
-stat_mods = Array[ExtResource("5_2cgup")]([SubResource("Resource_2cgup"), SubResource("Resource_a5ia6")])
-metadata/_custom_type_script = "uid://dwk26sgm2pki0"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b4ekb"]
 size = Vector2(62, 62)
@@ -37,7 +17,6 @@ collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_6r27q")
 stats = SubResource("Resource_6r27q")
-charms = Array[ExtResource("4_0lw5n")]([SubResource("Resource_my7n2")])
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1846633373]
 scale = Vector2(0.5, 0.5)
