@@ -5,7 +5,7 @@ signal hp_depleted
 signal hp_changed
 
 const NUMBER_OF_STATS: int = 4
-enum {MAX_HP, ATTACK, DEFENSE, SPEED}
+enum Type {MAX_HP, ATTACK, DEFENSE, SPEED}
 
 @export var level: int = 1
 
@@ -52,4 +52,4 @@ func _set_current_hp(new_hp: int) -> void:
 	current_hp = new_hp
 	if current_hp <= 0:
 		hp_depleted.emit()
-	hp_changed.emit(current_hp, current_stats[MAX_HP])
+	hp_changed.emit(current_hp, current_stats[Type.MAX_HP])
