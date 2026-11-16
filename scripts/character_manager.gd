@@ -4,8 +4,8 @@ extends Node
 @export var initial_character: CharacterBody2D
 
 @onready var characters: Array[Node] = get_tree().get_nodes_in_group("playable_characters")
-@onready var shift_menu: Control = $ShiftMenu
-@onready var item_list: VBoxContainer = $ShiftMenu/PanelContainer/VBoxContainer
+@onready var shift_menu: Control = $CanvasLayer/ShiftMenu
+@onready var item_list: VBoxContainer = $CanvasLayer/ShiftMenu/PanelContainer/VBoxContainer
 
 func _ready() -> void:
 	hide_shift_menu()
@@ -36,8 +36,11 @@ func hide_shift_menu():
 	shift_menu.hide()
 
 func swap_character(character: Node) -> void:
+	var camera: Camera2D = player_controller.get_parent().get_node("Camera")
 	player_controller.reparent(character)
 	player_controller.update_character()
+	camera.reparent(character)
+	camera.position = Vector2.ZERO
 	update_character_collision_layers()
 
 func update_character_collision_layers() -> void:
@@ -51,6 +54,7 @@ func remove_from_parties(member: PlayableCharacter):
 	for character in characters:
 		character.remove_party_member(member)
 	member.reset_party()
+	update_character_collision_layers()
 
 func add_party_member(leader: PlayableCharacter, new_member: PlayableCharacter) -> void:
 	remove_from_parties(new_member)
@@ -58,3 +62,4 @@ func add_party_member(leader: PlayableCharacter, new_member: PlayableCharacter) 
 	for member in leader_party:
 		member.add_party_member(new_member)
 	new_member.add_party(leader_party)
+	update_character_collision_layers()
