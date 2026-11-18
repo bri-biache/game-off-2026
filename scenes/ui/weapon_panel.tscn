@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://kvfrsbsr4lbl"]
+
+[ext_resource type="Theme" uid="uid://dim74hlp0man" path="res://resources/ui/theme.tres" id="1_s7dpg"]
+[ext_resource type="StyleBox" uid="uid://bibh27cufixxn" path="res://resources/ui/large_panel.tres" id="2_drymy"]
+[ext_resource type="LabelSettings" uid="uid://c10tet8t1562g" path="res://resources/ui/title_label_settings.tres" id="3_816fa"]
+[ext_resource type="Script" uid="uid://47wahbusjuym" path="res://scripts/ui/weapon_panel.gd" id="3_drymy"]
+
+[node name="WeaponPanel" type="PanelContainer" unique_id=1580726413]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_s7dpg")
+theme_override_styles/panel = ExtResource("2_drymy")
+script = ExtResource("3_drymy")
+
+[node name="WeaponPanelContents" type="VBoxContainer" parent="." unique_id=1958039037]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="WeaponTitle" type="Label" parent="WeaponPanelContents" unique_id=1071587249]
+layout_mode = 2
+text = "Weapon"
+label_settings = ExtResource("3_816fa")
+uppercase = true
+
+[node name="WeaponInfo" type="VBoxContainer" parent="WeaponPanelContents" unique_id=1883821561]
+layout_mode = 2
+size_flags_vertical = 3

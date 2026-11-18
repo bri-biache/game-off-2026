@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bxi4o6odqi4er"]
+
+[ext_resource type="Theme" uid="uid://dim74hlp0man" path="res://resources/ui/theme.tres" id="1_en0tk"]
+[ext_resource type="StyleBox" uid="uid://bibh27cufixxn" path="res://resources/ui/large_panel.tres" id="2_xb3x1"]
+[ext_resource type="LabelSettings" uid="uid://c10tet8t1562g" path="res://resources/ui/title_label_settings.tres" id="3_flsix"]
+[ext_resource type="Script" uid="uid://de8nfr3qfcg0j" path="res://scripts/ui/stats_panel.gd" id="3_xb3x1"]
+[ext_resource type="LabelSettings" uid="uid://gyk7v33e0s4l" path="res://resources/ui/simple_label_setting.tres" id="4_sder2"]
+
+[node name="StatsPanel" type="PanelContainer" unique_id=1380106500]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_en0tk")
+theme_override_styles/panel = ExtResource("2_xb3x1")
+script = ExtResource("3_xb3x1")
+
+[node name="StatsPanelContents" type="VBoxContainer" parent="." unique_id=1402211598]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="StatsTitle" type="Label" parent="StatsPanelContents" unique_id=1468884007]
+layout_mode = 2
+text = "Stats"
+label_settings = ExtResource("3_flsix")
+uppercase = true
+
+[node name="StatsTable" type="HBoxContainer" parent="StatsPanelContents" unique_id=96222746]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="StatNames" type="VBoxContainer" parent="StatsPanelContents/StatsTable" unique_id=1497073339]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="Label" type="Label" parent="StatsPanelContents/StatsTable/StatNames" unique_id=2018957585]
+layout_mode = 2
+text = "HP"
+label_settings = ExtResource("4_sder2")
+
+[node name="Label2" type="Label" parent="StatsPanelContents/StatsTable/StatNames" unique_id=1196007664]
+layout_mode = 2
+text = "Attack"
+label_settings = ExtResource("4_sder2")
+
+[node name="Label3" type="Label" parent="StatsPanelContents/StatsTable/StatNames" unique_id=1820121839]
+layout_mode = 2
+text = "Defense"
+label_settings = ExtResource("4_sder2")
+
+[node name="Label4" type="Label" parent="StatsPanelContents/StatsTable/StatNames" unique_id=408834156]
+layout_mode = 2
+text = "Speed"
+label_settings = ExtResource("4_sder2")
+
+[node name="StatValues" type="VBoxContainer" parent="StatsPanelContents/StatsTable" unique_id=331538999]
+layout_mode = 2
+size_flags_horizontal = 10

@@ -37,5 +37,5 @@ func update_stats() -> void:
 	#	modifier.reset_addends()
 	#	modifier.reset_multipliers()
 	if weapon:
-		stats.add_addend(Stats.Type.ATTACK, weapon.attack)
+		stats.add_addend(Stats.Type.ATTACK, weapon.attack_modifier)
 	stats.calculate_stats()

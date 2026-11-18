@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://bepx4vwtvux0c"]
+
+[ext_resource type="Script" uid="uid://c5eig16ykmtnt" path="res://scripts/resources/item/weapon.gd" id="1_1d6de"]
+[ext_resource type="Script" uid="uid://dk7yljg0i1k26" path="res://scripts/resources/stat_modifier/stat_addend.gd" id="1_4ihpc"]
+
+[sub_resource type="Resource" id="Resource_4ihpc"]
+script = ExtResource("1_4ihpc")
+value = 5
+modified_stat = 1
+metadata/_custom_type_script = "uid://dk7yljg0i1k26"
+
+[resource]
+script = ExtResource("1_1d6de")
+attack = SubResource("Resource_4ihpc")
+metadata/_custom_type_script = "uid://c5eig16ykmtnt"
