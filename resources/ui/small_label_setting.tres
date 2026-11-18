@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://5j6bq6eh3767"]
+
+[ext_resource type="FontFile" uid="uid://bvw5hnmrkn48q" path="res://assets/ui/fonts/Varnished.ttf" id="1_nxkvb"]
+
+[resource]
+font = ExtResource("1_nxkvb")
+font_size = 8

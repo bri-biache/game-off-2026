@@ -79,3 +79,5 @@ shape = SubResource("RectangleShape2D_b4ekb")
 [node name="Character3" parent="." unique_id=599156110 instance=ExtResource("1_g7g4h")]
 modulate = Color(0.9333334, 0, 1, 1)
 position = Vector2(92, 267)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1187093075]

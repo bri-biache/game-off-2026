@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://c10tet8t1562g"]
+
+[ext_resource type="FontFile" uid="uid://cnbtv6sdac6gx" path="res://assets/ui/fonts/Sol Schori Bold.ttf" id="1_j0tjn"]
+
+[resource]
+font = ExtResource("1_j0tjn")
+font_size = 32
