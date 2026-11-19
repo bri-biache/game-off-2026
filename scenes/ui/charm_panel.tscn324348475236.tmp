@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bwicy4t8cpw1t"]
+
+[ext_resource type="Theme" uid="uid://dim74hlp0man" path="res://resources/ui/theme.tres" id="1_272rq"]
+[ext_resource type="StyleBox" uid="uid://bpg054hj45ry3" path="res://resources/ui/medium_panel.tres" id="2_11jcn"]
+[ext_resource type="Script" uid="uid://gsqfvvx8n61h" path="res://scripts/ui/charm_panel.gd" id="3_11jcn"]
+[ext_resource type="LabelSettings" uid="uid://tivvtnxhftbw" path="res://resources/ui/subtitle_label_settings.tres" id="3_cl8wb"]
+[ext_resource type="LabelSettings" uid="uid://gyk7v33e0s4l" path="res://resources/ui/simple_label_setting.tres" id="6_o52if"]
+
+[node name="CharmPanel" type="PanelContainer" unique_id=579301897]
+theme = ExtResource("1_272rq")
+theme_override_styles/panel = ExtResource("2_11jcn")
+script = ExtResource("3_11jcn")
+
+[node name="CharmInfo" type="VBoxContainer" parent="." unique_id=1404193376]
+layout_mode = 2
+
+[node name="CharmName" type="Label" parent="CharmInfo" unique_id=446440166]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+label_settings = ExtResource("3_cl8wb")
+autowrap_mode = 2
+
+[node name="StatModsContainer" type="FlowContainer" parent="CharmInfo" unique_id=1530631908]
+layout_mode = 2
+
+[node name="CharmDescription" type="Label" parent="CharmInfo" unique_id=815773326]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+label_settings = ExtResource("6_o52if")
+autowrap_mode = 2

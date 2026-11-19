@@ -5,6 +5,7 @@ signal hp_depleted
 signal hp_changed
 
 enum Type {MAX_HP, ATTACK, DEFENSE, SPEED}
+const TYPE_NAMES: Array[String] = ["HP", "ATK", "DEF", "SPD"]
 
 @export var level: int = 1
 

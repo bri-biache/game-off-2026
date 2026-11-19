@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b1kexmc56ie5v"]
+
+[ext_resource type="StyleBox" uid="uid://c3dycf67dxesa" path="res://resources/ui/small_panel.tres" id="1_n3q5f"]
+[ext_resource type="LabelSettings" uid="uid://5j6bq6eh3767" path="res://resources/ui/small_label_setting.tres" id="2_81nap"]
+[ext_resource type="Script" uid="uid://qautuigyfueu" path="res://scripts/ui/stat_mod.gd" id="2_dpn41"]
+
+[node name="StatMod" type="PanelContainer" unique_id=1598473713]
+theme_override_styles/panel = ExtResource("1_n3q5f")
+script = ExtResource("2_dpn41")
+
+[node name="Info" type="Label" parent="." unique_id=1777389282]
+layout_mode = 2
+label_settings = ExtResource("2_81nap")

@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Charm" format=3 uid="uid://bluk42xss0pcb"]
+
+[ext_resource type="Script" uid="uid://dwk26sgm2pki0" path="res://scripts/resources/item/charm.gd" id="1_b2q0j"]
+[ext_resource type="Script" uid="uid://bw6qa1xuv7fc" path="res://scripts/resources/stat_modifier/stat_modifier.gd" id="2_at0o0"]
+[ext_resource type="Script" uid="uid://dk7yljg0i1k26" path="res://scripts/resources/stat_modifier/stat_addend.gd" id="3_at0o0"]
+[ext_resource type="Script" uid="uid://c8e0aqtqm7b31" path="res://scripts/resources/stat_modifier/stat_multiplier.gd" id="4_2vurp"]
+
+[sub_resource type="Resource" id="Resource_b2q0j"]
+script = ExtResource("3_at0o0")
+modified_stat = 2
+value = 2
+metadata/_custom_type_script = "uid://dk7yljg0i1k26"
+
+[sub_resource type="Resource" id="Resource_81nap"]
+script = ExtResource("4_2vurp")
+modified_stat = 2
+value = 5
+metadata/_custom_type_script = "uid://c8e0aqtqm7b31"
+
+[sub_resource type="Resource" id="Resource_dpn41"]
+script = ExtResource("3_at0o0")
+modified_stat = 1
+value = -9
+metadata/_custom_type_script = "uid://dk7yljg0i1k26"
+
+[resource]
+script = ExtResource("1_b2q0j")
+stat_mods = Array[ExtResource("2_at0o0")]([SubResource("Resource_b2q0j"), SubResource("Resource_81nap"), SubResource("Resource_dpn41")])
+name = "Test One"
+description = "This is the first test charm"
+metadata/_custom_type_script = "uid://dwk26sgm2pki0"

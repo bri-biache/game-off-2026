@@ -5,7 +5,7 @@ var stats: Array[int] = [100, 20, 35, 15]
 
 var weapon: Weapon = load("res://resources/items/weapons/test_weapon2.tres")
 
-var charms: Array[Charm] = []
+var charms: Array[Charm] = [load("res://resources/items/charms/test_charm1.tres"), load("res://resources/items/charms/test_charm2.tres")]
 
 var items: Array[Item] = []
 

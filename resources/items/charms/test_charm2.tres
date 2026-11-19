@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Charm" format=3 uid="uid://bs3smxdf3s1k2"]
+
+[ext_resource type="Script" uid="uid://dwk26sgm2pki0" path="res://scripts/resources/item/charm.gd" id="1_w62v6"]
+[ext_resource type="Script" uid="uid://bw6qa1xuv7fc" path="res://scripts/resources/stat_modifier/stat_modifier.gd" id="2_4gcmx"]
+
+[resource]
+script = ExtResource("1_w62v6")
+name = "Second Test"
+description = "This charm is also a test charm, but with different stats"
+metadata/_custom_type_script = "uid://dwk26sgm2pki0"

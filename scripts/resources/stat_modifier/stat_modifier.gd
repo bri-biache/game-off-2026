@@ -2,3 +2,4 @@
 extends Resource
 
 @export var modified_stat: Stats.Type = Stats.Type.MAX_HP
+@export var value: int = 0
