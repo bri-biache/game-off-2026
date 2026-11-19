@@ -1,10 +1,5 @@
 extends PanelContainer
 
-var subtitle_label_setttings: LabelSettings = load("uid://tivvtnxhftbw")
-var simple_label_settings: LabelSettings = load("uid://gyk7v33e0s4l")
-
-#@onready var stat_mods_container: FlowContainer = $CharmInfo/StatModsContainer
-
 func load_charm(charm: Charm) -> void:
 	create_charm_name_display(charm.name)
 	create_stat_mods_display(charm.stat_mods)
