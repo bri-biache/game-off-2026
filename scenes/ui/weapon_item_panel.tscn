@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://b1xapopufqbgt"]
+
+[ext_resource type="Theme" uid="uid://dim74hlp0man" path="res://resources/ui/theme.tres" id="1_are3a"]
+[ext_resource type="StyleBox" uid="uid://bpg054hj45ry3" path="res://resources/ui/medium_panel.tres" id="2_wawjm"]
+[ext_resource type="LabelSettings" uid="uid://tivvtnxhftbw" path="res://resources/ui/subtitle_label_settings.tres" id="3_5aaq5"]
+[ext_resource type="Script" uid="uid://1cwafisngio7" path="res://scripts/ui/weapon_item_panel.gd" id="3_wawjm"]
+[ext_resource type="LabelSettings" uid="uid://gyk7v33e0s4l" path="res://resources/ui/simple_label_setting.tres" id="4_rkiqm"]
+
+[node name="WeaponItemPanel" type="PanelContainer" unique_id=899203272]
+theme = ExtResource("1_are3a")
+theme_override_styles/panel = ExtResource("2_wawjm")
+script = ExtResource("3_wawjm")
+
+[node name="PanelContents" type="VBoxContainer" parent="." unique_id=1857091613]
+layout_mode = 2
+
+[node name="WeaponName" type="Label" parent="PanelContents" unique_id=1177882412]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+label_settings = ExtResource("3_5aaq5")
+autowrap_mode = 2
+
+[node name="WeaponAttack" type="Label" parent="PanelContents" unique_id=744248489]
+layout_mode = 2
+label_settings = ExtResource("3_5aaq5")
+
+[node name="WeaponDescription" type="Label" parent="PanelContents" unique_id=1525596263]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+label_settings = ExtResource("4_rkiqm")
+autowrap_mode = 2

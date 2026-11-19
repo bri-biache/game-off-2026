@@ -2,9 +2,17 @@
 
 [ext_resource type="Script" uid="uid://dwk26sgm2pki0" path="res://scripts/resources/item/charm.gd" id="1_w62v6"]
 [ext_resource type="Script" uid="uid://bw6qa1xuv7fc" path="res://scripts/resources/stat_modifier/stat_modifier.gd" id="2_4gcmx"]
+[ext_resource type="Script" uid="uid://c8e0aqtqm7b31" path="res://scripts/resources/stat_modifier/stat_multiplier.gd" id="3_4gcmx"]
+
+[sub_resource type="Resource" id="Resource_rba02"]
+script = ExtResource("3_4gcmx")
+modified_stat = 2
+value = -20
+metadata/_custom_type_script = "uid://c8e0aqtqm7b31"
 
 [resource]
 script = ExtResource("1_w62v6")
+stat_mods = Array[ExtResource("2_4gcmx")]([SubResource("Resource_rba02")])
 name = "Second Test"
 description = "This charm is also a test charm, but with different stats"
 metadata/_custom_type_script = "uid://dwk26sgm2pki0"

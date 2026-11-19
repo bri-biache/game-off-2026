@@ -2,16 +2,10 @@
 
 [ext_resource type="Theme" uid="uid://dim74hlp0man" path="res://resources/ui/theme.tres" id="1_d3ge5"]
 [ext_resource type="Script" uid="uid://me301v1b4ihn" path="res://scripts/ui/tab_menu.gd" id="2_hgfna"]
-[ext_resource type="StyleBox" uid="uid://bibh27cufixxn" path="res://resources/ui/large_panel.tres" id="3_hcjjq"]
 [ext_resource type="PackedScene" uid="uid://bxi4o6odqi4er" path="res://scenes/ui/stats_panel.tscn" id="3_rba02"]
 [ext_resource type="PackedScene" uid="uid://kvfrsbsr4lbl" path="res://scenes/ui/weapon_panel.tscn" id="4_hcjjq"]
-[ext_resource type="LabelSettings" uid="uid://c10tet8t1562g" path="res://resources/ui/title_label_settings.tres" id="4_rba02"]
-[ext_resource type="LabelSettings" uid="uid://gyk7v33e0s4l" path="res://resources/ui/simple_label_setting.tres" id="5_81pg7"]
 [ext_resource type="PackedScene" uid="uid://cwlk650mfak8g" path="res://scenes/ui/charms_panel.tscn" id="5_rba02"]
-[ext_resource type="LabelSettings" uid="uid://tivvtnxhftbw" path="res://resources/ui/subtitle_label_settings.tres" id="6_efnfj"]
-[ext_resource type="StyleBox" uid="uid://bpg054hj45ry3" path="res://resources/ui/medium_panel.tres" id="7_5rtna"]
-[ext_resource type="StyleBox" uid="uid://c3dycf67dxesa" path="res://resources/ui/small_panel.tres" id="8_e70gy"]
-[ext_resource type="LabelSettings" uid="uid://5j6bq6eh3767" path="res://resources/ui/small_label_setting.tres" id="9_k2wbd"]
+[ext_resource type="PackedScene" uid="uid://cjovyvnvdwdur" path="res://scenes/ui/items_panel.tscn" id="6_4wn2p"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_occyt"]
 content_margin_left = 8.0
@@ -46,118 +40,5 @@ layout_mode = 2
 [node name="CharmsPanel" parent="HBoxContainer" unique_id=898953601 instance=ExtResource("5_rba02")]
 layout_mode = 2
 
-[node name="ItemsPanel" type="PanelContainer" parent="HBoxContainer" unique_id=1668234323]
+[node name="ItemsPanel" parent="HBoxContainer" unique_id=1939987654 instance=ExtResource("6_4wn2p")]
 layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("1_d3ge5")
-theme_override_styles/panel = ExtResource("3_hcjjq")
-
-[node name="ItemPanelContents" type="VBoxContainer" parent="HBoxContainer/ItemsPanel" unique_id=1324376228]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/separation = 12
-
-[node name="Title" type="Label" parent="HBoxContainer/ItemsPanel/ItemPanelContents" unique_id=1143466877]
-layout_mode = 2
-text = "Items"
-label_settings = ExtResource("4_rba02")
-uppercase = true
-
-[node name="ItemsScrollableArea" type="ScrollContainer" parent="HBoxContainer/ItemsPanel/ItemPanelContents" unique_id=1582072116]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="ItemsList" type="VBoxContainer" parent="HBoxContainer/ItemsPanel/ItemPanelContents/ItemsScrollableArea" unique_id=1076259976]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = ExtResource("1_d3ge5")
-
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/ItemsPanel/ItemPanelContents/ItemsScrollableArea/ItemsList" unique_id=1603698099]
-layout_mode = 2
-theme = ExtResource("1_d3ge5")
-theme_override_styles/panel = ExtResource("7_5rtna")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ItemsPanel/ItemPanelContents/ItemsScrollableArea/ItemsList/PanelContainer" unique_id=428471884]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="HBoxContainer/ItemsPanel/ItemPanelContents/ItemsScrollableArea/ItemsList/PanelContainer/VBoxContainer" unique_id=377343820]
-layout_mode = 2
-text = "Charm example"
-label_settings = ExtResource("6_efnfj")
-
-[node name="BoxContainer" type="FlowContainer" parent="HBoxContainer/ItemsPanel/ItemPanelContents/ItemsScrollableArea/ItemsList/PanelContainer/VBoxContainer" unique_id=1237294853]
-layout_mode = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/ItemsPanel/ItemPanelContents/ItemsScrollableArea/ItemsList/PanelContainer/VBoxContainer/BoxContainer" unique_id=571648695]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_styles/panel = ExtResource("8_e70gy")
-
-[node name="Label2" type="Label" parent="HBoxContainer/ItemsPanel/ItemPanelContents/ItemsScrollableArea/ItemsList/PanelContainer/VBoxContainer/BoxContainer/PanelContainer" unique_id=1498570408]
-layout_mode = 2
-text = "+20 def"
-label_settings = ExtResource("9_k2wbd")
-
-[node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer/ItemsPanel/ItemPanelContents/ItemsScrollableArea/ItemsList/PanelContainer/VBoxContainer/BoxContainer" unique_id=1382740526]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_styles/panel = ExtResource("8_e70gy")
-
-[node name="Label2" type="Label" parent="HBoxContainer/ItemsPanel/ItemPanelContents/ItemsScrollableArea/ItemsList/PanelContainer/VBoxContainer/BoxContainer/PanelContainer2" unique_id=1549278705]
-layout_mode = 2
-text = "+20% atk"
-label_settings = ExtResource("9_k2wbd")
-
-[node name="PanelContainer3" type="PanelContainer" parent="HBoxContainer/ItemsPanel/ItemPanelContents/ItemsScrollableArea/ItemsList/PanelContainer/VBoxContainer/BoxContainer" unique_id=86181669]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_styles/panel = ExtResource("8_e70gy")
-
-[node name="Label2" type="Label" parent="HBoxContainer/ItemsPanel/ItemPanelContents/ItemsScrollableArea/ItemsList/PanelContainer/VBoxContainer/BoxContainer/PanelContainer3" unique_id=302634770]
-layout_mode = 2
-text = "+200% atk"
-label_settings = ExtResource("9_k2wbd")
-
-[node name="PanelContainer4" type="PanelContainer" parent="HBoxContainer/ItemsPanel/ItemPanelContents/ItemsScrollableArea/ItemsList/PanelContainer/VBoxContainer/BoxContainer" unique_id=1926548632]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_styles/panel = ExtResource("8_e70gy")
-
-[node name="Label2" type="Label" parent="HBoxContainer/ItemsPanel/ItemPanelContents/ItemsScrollableArea/ItemsList/PanelContainer/VBoxContainer/BoxContainer/PanelContainer4" unique_id=1065539951]
-layout_mode = 2
-text = "+20% atk"
-label_settings = ExtResource("9_k2wbd")
-
-[node name="Label3" type="Label" parent="HBoxContainer/ItemsPanel/ItemPanelContents/ItemsScrollableArea/ItemsList/PanelContainer/VBoxContainer" unique_id=1692214795]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 2
-text = "This is the description of the charm"
-label_settings = ExtResource("5_81pg7")
-autowrap_mode = 2
-
-[node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer/ItemsPanel/ItemPanelContents/ItemsScrollableArea/ItemsList" unique_id=2004699237]
-layout_mode = 2
-theme = ExtResource("1_d3ge5")
-theme_override_styles/panel = ExtResource("7_5rtna")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/ItemsPanel/ItemPanelContents/ItemsScrollableArea/ItemsList/PanelContainer2" unique_id=492125890]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="HBoxContainer/ItemsPanel/ItemPanelContents/ItemsScrollableArea/ItemsList/PanelContainer2/VBoxContainer" unique_id=817728325]
-layout_mode = 2
-text = "Weapon"
-label_settings = ExtResource("6_efnfj")
-
-[node name="Label2" type="Label" parent="HBoxContainer/ItemsPanel/ItemPanelContents/ItemsScrollableArea/ItemsList/PanelContainer2/VBoxContainer" unique_id=1616591378]
-layout_mode = 2
-text = "ATK: 4"
-label_settings = ExtResource("6_efnfj")
-
-[node name="Label3" type="Label" parent="HBoxContainer/ItemsPanel/ItemPanelContents/ItemsScrollableArea/ItemsList/PanelContainer2/VBoxContainer" unique_id=1024439312]
-custom_minimum_size = Vector2(10, 0)
-layout_mode = 2
-text = "This is the description of the weapon"
-label_settings = ExtResource("5_81pg7")
-autowrap_mode = 2

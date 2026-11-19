@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cjovyvnvdwdur"]
+
+[ext_resource type="Theme" uid="uid://dim74hlp0man" path="res://resources/ui/theme.tres" id="1_0w3pk"]
+[ext_resource type="StyleBox" uid="uid://bibh27cufixxn" path="res://resources/ui/large_panel.tres" id="2_bp7p4"]
+[ext_resource type="Script" uid="uid://nqbm76qa6137" path="res://scripts/ui/items_panel.gd" id="3_bp7p4"]
+[ext_resource type="LabelSettings" uid="uid://c10tet8t1562g" path="res://resources/ui/title_label_settings.tres" id="3_sh54r"]
+
+[node name="ItemsPanel" type="PanelContainer" unique_id=1939987654]
+size_flags_horizontal = 3
+theme = ExtResource("1_0w3pk")
+theme_override_styles/panel = ExtResource("2_bp7p4")
+script = ExtResource("3_bp7p4")
+
+[node name="ItemPanelContents" type="VBoxContainer" parent="." unique_id=665295123]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="ItemPanelContents" unique_id=1097356173]
+layout_mode = 2
+text = "Items"
+label_settings = ExtResource("3_sh54r")
+uppercase = true
+
+[node name="ItemsScrollableArea" type="ScrollContainer" parent="ItemPanelContents" unique_id=629926499]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ItemsList" type="VBoxContainer" parent="ItemPanelContents/ItemsScrollableArea" unique_id=569784075]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_0w3pk")

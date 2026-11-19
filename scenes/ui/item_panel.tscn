@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://f78vlaulgj5y"]
+
+[ext_resource type="Theme" uid="uid://dim74hlp0man" path="res://resources/ui/theme.tres" id="1_eojn8"]
+[ext_resource type="StyleBox" uid="uid://bpg054hj45ry3" path="res://resources/ui/medium_panel.tres" id="2_vu1g7"]
+[ext_resource type="Script" uid="uid://cop7gcccc4loe" path="res://scripts/ui/item_panel.gd" id="3_vu1g7"]
+[ext_resource type="LabelSettings" uid="uid://tivvtnxhftbw" path="res://resources/ui/subtitle_label_settings.tres" id="4_noj8l"]
+[ext_resource type="LabelSettings" uid="uid://gyk7v33e0s4l" path="res://resources/ui/simple_label_setting.tres" id="5_dbhij"]
+
+[node name="ItemPanel" type="PanelContainer" unique_id=579301897]
+theme = ExtResource("1_eojn8")
+theme_override_styles/panel = ExtResource("2_vu1g7")
+script = ExtResource("3_vu1g7")
+
+[node name="ItemInfo" type="VBoxContainer" parent="." unique_id=1404193376]
+layout_mode = 2
+
+[node name="ItemName" type="Label" parent="ItemInfo" unique_id=446440166]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+label_settings = ExtResource("4_noj8l")
+autowrap_mode = 2
+
+[node name="ItemDescription" type="Label" parent="ItemInfo" unique_id=815773326]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+label_settings = ExtResource("5_dbhij")
+autowrap_mode = 2
