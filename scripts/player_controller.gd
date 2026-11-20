@@ -12,6 +12,7 @@ func _ready() -> void:
 	tab_menu.charms = character.charms
 	tab_menu.items = character.items
 	tab_menu.load_panels()
+	tab_menu.item_action.connect(on_tab_menu_interaction)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("move_up") and character.velocity.x == 0:
@@ -69,3 +70,35 @@ func show_tab_menu() -> void:
 func hide_tab_manu() -> void:
 	set_physics_process(true)
 	tab_menu.hide()
+
+func on_tab_menu_interaction(item: Item, id: TabMenu.ContextMenuOptions):
+	if id == TabMenu.ContextMenuOptions.WEAPON_EQUIP:
+		character.equip_weapon(item)
+		tab_menu.update_weapon(character.weapon)
+		tab_menu.update_items(character.items)
+	elif id == TabMenu.ContextMenuOptions.WEAPON_UNEQUIP:
+		character.unequip_weapon()
+		tab_menu.update_weapon(character.weapon)
+		tab_menu.update_items(character.items)
+	elif id == TabMenu.ContextMenuOptions.WEAPON_GIVE:
+		pass
+	elif id == TabMenu.ContextMenuOptions.WEAPON_DROP:
+		pass
+	elif id == TabMenu.ContextMenuOptions.CHARM_EQUIP:
+		character.equip_charm(item)
+		tab_menu.update_charms(character.charms)
+		tab_menu.update_items(character.items)
+	elif id == TabMenu.ContextMenuOptions.CHARM_UNEQUIP:
+		character.unequip_charm(item)
+		tab_menu.update_charms(character.charms)
+		tab_menu.update_items(character.items)
+	elif id == TabMenu.ContextMenuOptions.CHARM_GIVE:
+		pass
+	elif id == TabMenu.ContextMenuOptions.CHARM_DROP:
+		pass
+	elif id == TabMenu.ContextMenuOptions.ITEM_USE:
+		pass
+	elif id == TabMenu.ContextMenuOptions.ITEM_GIVE:
+		pass
+	elif id == TabMenu.ContextMenuOptions.ITEM_DROP:
+		pass

@@ -37,3 +37,21 @@ func update_stats() -> void:
 	if weapon:
 		stats.add_addend(Stats.Type.ATTACK, weapon.attack_modifier)
 	stats.calculate_stats()
+
+func unequip_weapon() -> void:
+	items.append(weapon)
+	weapon = null
+
+func equip_weapon(new_weapon: Weapon) -> void:
+	if weapon:
+		items.append(weapon)
+	weapon = new_weapon
+	items.erase(new_weapon)
+
+func equip_charm(charm: Charm) -> void:
+	charms.append(charm)
+	items.erase(charm)
+
+func unequip_charm(charm: Charm) -> void:
+	charms.erase(charm)
+	items.append(charm)

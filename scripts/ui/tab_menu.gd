@@ -1,4 +1,7 @@
+class_name TabMenu
 extends PanelContainer
+
+signal item_action(item: Item, id: ContextMenuOptions)
 
 enum ContextMenuOptions {WEAPON_EQUIP, WEAPON_UNEQUIP, WEAPON_GIVE, WEAPON_DROP,
 	CHARM_EQUIP, CHARM_UNEQUIP, CHARM_GIVE, CHARM_DROP, ITEM_USE, ITEM_GIVE, ITEM_DROP}
@@ -39,6 +42,21 @@ func load_panels() -> void:
 	items_panel.unequipped_charm_pressed.connect(on_unequipped_charm_press)
 	items_panel.item_pressed.connect(on_item_press)
 
+func update_weapon(weapon: Weapon) -> void:
+	equipped_weapon = weapon
+	weapon_panel.clear()
+	weapon_panel.load_weapon(equipped_weapon)
+
+func update_charms(updated_charms: Array[Charm]) -> void:
+	charms = updated_charms
+	charms_panel.clear()
+	charms_panel.load_charms(charms)
+
+func update_items(updated_items: Array[Item]) -> void:
+	items = updated_items
+	items_panel.clear()
+	items_panel.load_items(items)
+
 func on_equipped_weapon_press(weapon: Weapon) -> void:
 	selected_item = weapon
 	context_menu.add_item("Unequip", ContextMenuOptions.WEAPON_UNEQUIP)
@@ -74,7 +92,7 @@ func display_context_menu() -> void:
 	context_menu.popup(Rect2(get_global_mouse_position(), context_menu.size))
 
 func on_context_menu_press(id: int) -> void:
-	pass
+	item_action.emit(selected_item, id)
 
 func on_context_menu_hide() -> void:
 	context_menu.clear()

@@ -4,8 +4,9 @@ signal unequipped_weapon_pressed(weapon: Weapon)
 signal unequipped_charm_pressed(charm: Charm)
 signal item_pressed(item: Item)
 
+@onready var items_list: VBoxContainer = %ItemsList
+
 func load_items(items: Array[Item]):
-	var items_list: VBoxContainer = %ItemsList
 	for item in items:
 		if item is Charm:
 			var charm_panel: PanelContainer = load("uid://bwicy4t8cpw1t").instantiate()
@@ -22,6 +23,10 @@ func load_items(items: Array[Item]):
 			item_panel.load_item(item)
 			item_panel.item_pressed.connect(on_item_press)
 			items_list.add_child(item_panel)
+
+func clear():
+	for child_node in items_list.get_children():
+		child_node.queue_free()
 
 func on_weapon_press(weapon: Weapon) -> void:
 	unequipped_weapon_pressed.emit(weapon)

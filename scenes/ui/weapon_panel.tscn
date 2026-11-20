@@ -22,6 +22,12 @@ text = "Weapon"
 label_settings = ExtResource("3_816fa")
 uppercase = true
 
-[node name="WeaponInfo" type="VBoxContainer" parent="WeaponPanelContents" unique_id=1883821561]
+[node name="ScrollableArea" type="ScrollContainer" parent="WeaponPanelContents" unique_id=956121119]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="WeaponInfo" type="VBoxContainer" parent="WeaponPanelContents/ScrollableArea" unique_id=1883821561]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
