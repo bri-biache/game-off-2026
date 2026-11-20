@@ -6,6 +6,7 @@ const RAYCAST_LENGTH: int = 90
 @export var stats: Stats
 @export var weapon: Weapon
 @export var charms: Array[Charm]
+@export var items: Array[Item]
 
 var party: Array[PlayableCharacter] = [self]
 var position_tracker: Array[Vector2]
@@ -33,9 +34,6 @@ func reset_party() -> void:
 	party = [self]
 
 func update_stats() -> void:
-	#for modifier in stats.stat_modifiers:
-	#	modifier.reset_addends()
-	#	modifier.reset_multipliers()
 	if weapon:
 		stats.add_addend(Stats.Type.ATTACK, weapon.attack_modifier)
 	stats.calculate_stats()

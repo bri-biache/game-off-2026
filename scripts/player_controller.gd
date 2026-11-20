@@ -5,6 +5,13 @@ const SPEED: int = 200
 var character_manager: Node
 
 @onready var character: CharacterBody2D = get_parent()
+@onready var tab_menu: PanelContainer = %TabMenu
+
+func _ready() -> void:
+	tab_menu.equipped_weapon = character.weapon
+	tab_menu.charms = character.charms
+	tab_menu.items = character.items
+	tab_menu.load_panels()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("move_up") and character.velocity.x == 0:
@@ -34,6 +41,11 @@ func _input(event: InputEvent) -> void:
 			character_manager.add_party_member(character, collider)
 	elif event.is_action_pressed("remove_party"):
 		character_manager.remove_from_parties(character)
+	elif event.is_action_pressed("tab"):
+		if tab_menu.visible:
+			hide_tab_manu()
+		else:
+			show_tab_menu()
 
 func _physics_process(_delta: float) -> void:
 	var input_direction: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -49,3 +61,11 @@ func _physics_process(_delta: float) -> void:
 
 func update_character():
 	character = get_parent()
+
+func show_tab_menu() -> void:
+	set_physics_process(false)
+	tab_menu.show()
+
+func hide_tab_manu() -> void:
+	set_physics_process(true)
+	tab_menu.hide()

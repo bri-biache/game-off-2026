@@ -47,7 +47,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="PopupMenu" type="PopupMenu" parent="." unique_id=725102445]
+[node name="ContextMenu" type="PopupMenu" parent="." unique_id=725102445]
 unique_name_in_owner = true
 oversampling_override = 1.0
 theme = ExtResource("1_d3ge5")

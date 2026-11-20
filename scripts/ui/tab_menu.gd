@@ -6,14 +6,11 @@ enum ContextMenuOptions {WEAPON_EQUIP, WEAPON_UNEQUIP, WEAPON_GIVE, WEAPON_DROP,
 var hp: int = 90
 var stats: Array[int] = [100, 20, 35, 15]
 
-var equipped_weapon: Weapon = load("res://resources/items/weapons/test_weapon2.tres")
+var equipped_weapon: Weapon
 
-var charms: Array[Charm] = [load("res://resources/items/charms/test_charm1.tres"), 
-load("res://resources/items/charms/test_charm2.tres"), load("res://resources/items/charms/test_charm1.tres")]
+var charms: Array[Charm]
 
-var items: Array[Item] = [load("res://resources/items/weapons/test_weapon2.tres"),
-load("res://resources/items/weapons/test_weapon.tres"), load("res://resources/items/charms/test_charm1.tres"),
-load("res://resources/items/charms/test_charm2.tres"), load("res://resources/items/test_item.tres")]
+var items: Array[Item]
 
 var selected_item: Item
 
@@ -22,9 +19,13 @@ var selected_item: Item
 @onready var charms_panel: PanelContainer = %CharmsPanel
 @onready var items_panel: PanelContainer = %ItemsPanel
 
-@onready var context_menu: PopupMenu = %PopupMenu
+@onready var context_menu: PopupMenu = %ContextMenu
 
 func _ready() -> void:
+	context_menu.id_pressed.connect(on_context_menu_press)
+	context_menu.popup_hide.connect(on_context_menu_hide)
+
+func load_panels() -> void:
 	stats_panel.load_stats(hp, stats)
 	
 	weapon_panel.load_weapon(equipped_weapon)
@@ -37,9 +38,6 @@ func _ready() -> void:
 	items_panel.unequipped_weapon_pressed.connect(on_unequipped_weapon_press)
 	items_panel.unequipped_charm_pressed.connect(on_unequipped_charm_press)
 	items_panel.item_pressed.connect(on_item_press)
-	
-	context_menu.id_pressed.connect(on_context_menu_press)
-	context_menu.popup_hide.connect(on_context_menu_hide)
 
 func on_equipped_weapon_press(weapon: Weapon) -> void:
 	selected_item = weapon

@@ -5,6 +5,13 @@
 [ext_resource type="Script" uid="uid://xrlce63cg4yh" path="res://scripts/character_manager.gd" id="1_nd71p"]
 [ext_resource type="Script" uid="uid://dspbr1k1t16qe" path="res://scripts/player_controller.gd" id="2_j8ivh"]
 [ext_resource type="Resource" uid="uid://b2hl2egdt3k3m" path="res://resources/items/weapons/test_weapon2.tres" id="4_qjeyg"]
+[ext_resource type="Script" uid="uid://dwk26sgm2pki0" path="res://scripts/resources/item/charm.gd" id="5_gthg3"]
+[ext_resource type="PackedScene" uid="uid://5gk04q8nyb21" path="res://scenes/ui/tab_menu.tscn" id="6_3qnke"]
+[ext_resource type="Resource" uid="uid://bluk42xss0pcb" path="res://resources/items/charms/test_charm1.tres" id="6_ntc4i"]
+[ext_resource type="Resource" uid="uid://bs3smxdf3s1k2" path="res://resources/items/charms/test_charm2.tres" id="7_u0xbq"]
+[ext_resource type="Script" uid="uid://330bnvfgbgdg" path="res://scripts/resources/item/item.gd" id="8_pln1h"]
+[ext_resource type="Resource" uid="uid://bepx4vwtvux0c" path="res://resources/items/weapons/test_weapon.tres" id="9_8gixj"]
+[ext_resource type="Resource" uid="uid://dbu7wt45twwm6" path="res://resources/items/test_item.tres" id="10_hf2sn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b4ekb"]
 size = Vector2(123, 123)
@@ -42,11 +49,19 @@ layout_mode = 2
 [node name="Character1" parent="." unique_id=1264062262 instance=ExtResource("1_g7g4h")]
 position = Vector2(60, 53)
 weapon = ExtResource("4_qjeyg")
+charms = Array[ExtResource("5_gthg3")]([ExtResource("6_ntc4i"), ExtResource("7_u0xbq")])
+items = Array[ExtResource("8_pln1h")]([ExtResource("9_8gixj"), ExtResource("10_hf2sn"), ExtResource("6_ntc4i")])
 
 [node name="Camera" type="Camera2D" parent="Character1" unique_id=1079825712]
 
 [node name="PlayerController" type="Node" parent="Character1" unique_id=1450404110]
 script = ExtResource("2_j8ivh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Character1/PlayerController" unique_id=444986069]
+
+[node name="TabMenu" parent="Character1/PlayerController/CanvasLayer" unique_id=757759385 instance=ExtResource("6_3qnke")]
+unique_name_in_owner = true
+visible = false
 
 [node name="Character2" parent="." unique_id=2076094643 instance=ExtResource("1_g7g4h")]
 modulate = Color(0.9333333, 1, 0, 1)
