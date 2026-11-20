@@ -32,13 +32,17 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="StatsPanel" parent="HBoxContainer/VBoxContainer" unique_id=1380106500 instance=ExtResource("3_rba02")]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="WeaponPanel" parent="HBoxContainer/VBoxContainer" unique_id=1580726413 instance=ExtResource("4_hcjjq")]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="CharmsPanel" parent="HBoxContainer" unique_id=898953601 instance=ExtResource("5_rba02")]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="ItemsPanel" parent="HBoxContainer" unique_id=1939987654 instance=ExtResource("6_4wn2p")]
+unique_name_in_owner = true
 layout_mode = 2

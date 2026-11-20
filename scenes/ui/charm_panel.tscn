@@ -30,4 +30,5 @@ label_settings = ExtResource("6_o52if")
 autowrap_mode = 2
 
 [node name="Button" type="Button" parent="." unique_id=1627451273]
+unique_name_in_owner = true
 layout_mode = 2

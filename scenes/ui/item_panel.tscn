@@ -15,16 +15,19 @@ script = ExtResource("3_vu1g7")
 layout_mode = 2
 
 [node name="ItemName" type="Label" parent="ItemInfo" unique_id=446440166]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 label_settings = ExtResource("4_noj8l")
 autowrap_mode = 2
 
 [node name="ItemDescription" type="Label" parent="ItemInfo" unique_id=815773326]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 label_settings = ExtResource("5_dbhij")
 autowrap_mode = 2
 
 [node name="Button" type="Button" parent="." unique_id=2057803033]
+unique_name_in_owner = true
 layout_mode = 2
