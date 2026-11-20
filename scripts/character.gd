@@ -55,3 +55,9 @@ func equip_charm(charm: Charm) -> void:
 func unequip_charm(charm: Charm) -> void:
 	charms.erase(charm)
 	items.append(charm)
+
+func add_item(item: Item) -> void:
+	items.append(item)
+
+func remove_item(item: Item) -> void:
+	items.erase(item)

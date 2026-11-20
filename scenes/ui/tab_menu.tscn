@@ -51,3 +51,8 @@ layout_mode = 2
 unique_name_in_owner = true
 oversampling_override = 1.0
 theme = ExtResource("1_d3ge5")
+
+[node name="PartyMemberContextMenu" type="PopupMenu" parent="ContextMenu" unique_id=1773104785]
+unique_name_in_owner = true
+oversampling_override = 1.0
+theme = ExtResource("1_d3ge5")

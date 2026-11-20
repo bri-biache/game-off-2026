@@ -2,17 +2,18 @@ class_name TabMenu
 extends PanelContainer
 
 signal item_action(item: Item, id: ContextMenuOptions)
+signal give_item(item: Item, member: PlayableCharacter)
 
 enum ContextMenuOptions {WEAPON_EQUIP, WEAPON_UNEQUIP, WEAPON_GIVE, WEAPON_DROP,
 	CHARM_EQUIP, CHARM_UNEQUIP, CHARM_GIVE, CHARM_DROP, ITEM_USE, ITEM_GIVE, ITEM_DROP}
+
+var party_members: Array[PlayableCharacter] = []
 
 var hp: int = 90
 var stats: Array[int] = [100, 20, 35, 15]
 
 var equipped_weapon: Weapon
-
 var charms: Array[Charm]
-
 var items: Array[Item]
 
 var selected_item: Item
@@ -23,10 +24,12 @@ var selected_item: Item
 @onready var items_panel: PanelContainer = %ItemsPanel
 
 @onready var context_menu: PopupMenu = %ContextMenu
+@onready var party_member_context_menu = %PartyMemberContextMenu
 
 func _ready() -> void:
 	context_menu.id_pressed.connect(on_context_menu_press)
 	context_menu.popup_hide.connect(on_context_menu_hide)
+	party_member_context_menu.index_pressed.connect(on_party_member_context_menu_press)
 
 func load_panels() -> void:
 	stats_panel.load_stats(hp, stats)
@@ -41,6 +44,14 @@ func load_panels() -> void:
 	items_panel.unequipped_weapon_pressed.connect(on_unequipped_weapon_press)
 	items_panel.unequipped_charm_pressed.connect(on_unequipped_charm_press)
 	items_panel.item_pressed.connect(on_item_press)
+
+func add_party_member(member: PlayableCharacter) -> void:
+	party_member_context_menu.add_item(member.name)
+	party_members.append(member)
+
+func clear_party_members() -> void:
+	party_member_context_menu.clear()
+	party_members.clear()
 
 func update_weapon(weapon: Weapon) -> void:
 	equipped_weapon = weapon
@@ -70,21 +81,24 @@ func on_equipped_charm_press(charm: Charm) -> void:
 func on_unequipped_weapon_press(weapon: Weapon) -> void:
 	selected_item = weapon
 	context_menu.add_item("Equip", ContextMenuOptions.WEAPON_EQUIP)
-	context_menu.add_item("Give", ContextMenuOptions.WEAPON_GIVE)
+	if party_member_context_menu.item_count > 0:
+		context_menu.add_submenu_node_item("Give", party_member_context_menu, ContextMenuOptions.WEAPON_GIVE)
 	context_menu.add_item("Drop", ContextMenuOptions.WEAPON_DROP)
 	display_context_menu()
 
 func on_unequipped_charm_press(charm: Charm) -> void:
 	selected_item = charm
 	context_menu.add_item("Equip", ContextMenuOptions.CHARM_EQUIP)
-	context_menu.add_item("Give", ContextMenuOptions.CHARM_GIVE)
+	if party_member_context_menu.item_count > 0:
+		context_menu.add_submenu_node_item("Give", party_member_context_menu, ContextMenuOptions.CHARM_GIVE)
 	context_menu.add_item("Drop", ContextMenuOptions.CHARM_DROP)
 	display_context_menu()
 
 func on_item_press(item: Item) -> void:
 	selected_item = item
 	context_menu.add_item("Use", ContextMenuOptions.ITEM_USE)
-	context_menu.add_item("Give", ContextMenuOptions.ITEM_GIVE)
+	if party_member_context_menu.item_count > 0:
+		context_menu.add_submenu_node_item("Give", party_member_context_menu, ContextMenuOptions.ITEM_GIVE)
 	context_menu.add_item("Drop", ContextMenuOptions.ITEM_DROP)
 	display_context_menu()
 
@@ -93,6 +107,9 @@ func display_context_menu() -> void:
 
 func on_context_menu_press(id: int) -> void:
 	item_action.emit(selected_item, id)
+
+func on_party_member_context_menu_press(index: int) -> void:
+	give_item.emit(selected_item, party_members[index])
 
 func on_context_menu_hide() -> void:
 	context_menu.clear()

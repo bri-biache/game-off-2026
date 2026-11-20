@@ -13,6 +13,8 @@ func _ready() -> void:
 	tab_menu.items = character.items
 	tab_menu.load_panels()
 	tab_menu.item_action.connect(on_tab_menu_interaction)
+	tab_menu.give_item.connect(on_give_item)
+	update_party_context_menu()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("move_up") and character.velocity.x == 0:
@@ -63,7 +65,20 @@ func _physics_process(_delta: float) -> void:
 func update_character():
 	character = get_parent()
 
+func update_party_context_menu() -> void:
+	for member: PlayableCharacter in character.party:
+		if member != character:
+			tab_menu.add_party_member(member)
+
+func reload_tab_menu():
+	tab_menu.update_weapon(character.weapon)
+	tab_menu.update_charms(character.charms)
+	tab_menu.update_items(character.items)
+	tab_menu.clear_party_members()
+	update_party_context_menu()
+
 func show_tab_menu() -> void:
+	reload_tab_menu()
 	set_physics_process(false)
 	tab_menu.show()
 
@@ -80,8 +95,6 @@ func on_tab_menu_interaction(item: Item, id: TabMenu.ContextMenuOptions):
 		character.unequip_weapon()
 		tab_menu.update_weapon(character.weapon)
 		tab_menu.update_items(character.items)
-	elif id == TabMenu.ContextMenuOptions.WEAPON_GIVE:
-		pass
 	elif id == TabMenu.ContextMenuOptions.WEAPON_DROP:
 		pass
 	elif id == TabMenu.ContextMenuOptions.CHARM_EQUIP:
@@ -92,13 +105,14 @@ func on_tab_menu_interaction(item: Item, id: TabMenu.ContextMenuOptions):
 		character.unequip_charm(item)
 		tab_menu.update_charms(character.charms)
 		tab_menu.update_items(character.items)
-	elif id == TabMenu.ContextMenuOptions.CHARM_GIVE:
-		pass
 	elif id == TabMenu.ContextMenuOptions.CHARM_DROP:
 		pass
 	elif id == TabMenu.ContextMenuOptions.ITEM_USE:
 		pass
-	elif id == TabMenu.ContextMenuOptions.ITEM_GIVE:
-		pass
 	elif id == TabMenu.ContextMenuOptions.ITEM_DROP:
 		pass
+
+func on_give_item(item: Item, party_member: PlayableCharacter) -> void:
+	character.remove_item(item)
+	party_member.add_item(item)
+	tab_menu.update_items(character.items)

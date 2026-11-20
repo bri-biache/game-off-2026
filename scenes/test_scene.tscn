@@ -66,6 +66,7 @@ visible = false
 [node name="Character2" parent="." unique_id=2076094643 instance=ExtResource("1_g7g4h")]
 modulate = Color(0.9333333, 1, 0, 1)
 position = Vector2(190, 165)
+weapon = ExtResource("4_qjeyg")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=173214545]
 position = Vector2(322, 84)
