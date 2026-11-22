@@ -53,6 +53,14 @@ func clear_party_members() -> void:
 	party_member_context_menu.clear()
 	party_members.clear()
 
+func update_hp(new_hp: int) -> void:
+	hp = new_hp
+
+func update_stats(new_stats: Array[int]) -> void:
+	stats = new_stats
+	stats_panel.clear()
+	stats_panel.load_stats(hp, stats)
+
 func update_weapon(weapon: Weapon) -> void:
 	equipped_weapon = weapon
 	weapon_panel.clear()

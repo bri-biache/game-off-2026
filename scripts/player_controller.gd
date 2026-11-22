@@ -37,7 +37,7 @@ func _input(event: InputEvent) -> void:
 			character.set_direction(Vector2.DOWN)
 	
 	elif event.is_action_pressed("interact"):
-		print(character.stats.current_stats[Stats.Type.ATTACK])
+		print(character.stats.stat_addends)
 	elif event.is_action_pressed("quick_party"):
 		var collider: Node = character.ray_cast.get_collider()
 		if collider and collider.is_in_group("playable_characters"):
@@ -71,6 +71,8 @@ func update_party_context_menu() -> void:
 			tab_menu.add_party_member(member)
 
 func reload_tab_menu():
+	tab_menu.update_hp(character.stats.current_hp)
+	tab_menu.update_stats(character.stats.current_stats)
 	tab_menu.update_weapon(character.weapon)
 	tab_menu.update_charms(character.charms)
 	tab_menu.update_items(character.items)

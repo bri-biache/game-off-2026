@@ -41,23 +41,29 @@ func update_stats() -> void:
 func unequip_weapon() -> void:
 	items.append(weapon)
 	weapon = null
+	update_stats()
 
 func equip_weapon(new_weapon: Weapon) -> void:
 	if weapon:
 		items.append(weapon)
 	weapon = new_weapon
 	items.erase(new_weapon)
+	update_stats()
 
 func equip_charm(charm: Charm) -> void:
 	charms.append(charm)
 	items.erase(charm)
+	update_stats()
 
 func unequip_charm(charm: Charm) -> void:
 	charms.erase(charm)
 	items.append(charm)
+	update_stats()
 
 func add_item(item: Item) -> void:
 	items.append(item)
+	update_stats()
 
 func remove_item(item: Item) -> void:
 	items.erase(item)
+	update_stats()

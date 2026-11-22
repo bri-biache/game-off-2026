@@ -52,5 +52,6 @@ text = "Speed"
 label_settings = ExtResource("4_sder2")
 
 [node name="StatValues" type="VBoxContainer" parent="StatsPanelContents/StatsTable" unique_id=331538999]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 10

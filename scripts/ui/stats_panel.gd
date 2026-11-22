@@ -2,22 +2,21 @@ extends PanelContainer
 
 var label_settings: LabelSettings = load("uid://gyk7v33e0s4l")
 
-var current_hp: int
-var stats: Array[int]
+@onready var stat_values: VBoxContainer = %StatValues
 
-@onready var stat_values: VBoxContainer = $StatsPanelContents/StatsTable/StatValues
-
-func load_stats(_current_hp, _stats) -> void:
-	current_hp = _current_hp
-	stats = _stats
+func load_stats(current_hp, stats) -> void:
 	for i in range(Stats.Type.size()):
 		if i == Stats.Type.MAX_HP:
-			create_hp_display()
+			create_hp_display(current_hp, stats)
 		else:
 			create_label(str(stats[i]))
 
-func create_hp_display() -> void:
-	var hp_display: String = str(current_hp) + "/" + str(stats[Stats.Type.MAX_HP])
+func clear() -> void:
+	for child_node in %StatValues.get_children():
+		child_node.queue_free()
+
+func create_hp_display(hp: int, stats: Array[int]) -> void:
+	var hp_display: String = str(hp) + "/" + str(stats[Stats.Type.MAX_HP])
 	create_label(hp_display)
 
 func create_label(text: String) -> void:
