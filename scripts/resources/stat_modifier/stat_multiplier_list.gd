@@ -9,8 +9,8 @@ func add(new_multiplier: StatMultiplier) -> void:
 	calculate()
 
 func calculate() -> float:
-	var new_total = 1.0
+	var new_total: int = 0
 	for multiplier in list:
-		new_total += multiplier
+		new_total += multiplier.value
 	total = new_total
 	return new_total

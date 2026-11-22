@@ -16,7 +16,7 @@ const TYPE_NAMES: Array[String] = ["HP", "ATK", "DEF", "SPD"]
 
 @export var stat_curve: Curve = preload("uid://d0ie7apkpv6n")
 
-@export var current_hp: int = 0: set = _set_current_hp
+@export var current_hp: int = -1: set = _set_current_hp
 
 var base_stats: Array[int]
 var current_stats: Array[int]
@@ -25,6 +25,9 @@ var stat_multipliers: Array[StatMultiplierList]
 
 func _init() -> void:
 	resource_local_to_scene = true
+	fill_stat_modifier_arrays()
+
+func fill_stat_modifier_arrays():
 	current_stats.resize(Type.size())
 	stat_addends.resize(Type.size())
 	stat_multipliers.resize(Type.size())
@@ -35,14 +38,19 @@ func _init() -> void:
 func _setup_local_to_scene() -> void:
 	base_stats = [base_max_hp, base_attack, base_defense, base_speed]
 	calculate_stats()
-	if current_hp == 0:
+	if current_hp == -1:
 		current_hp = base_max_hp
+
+func clear() -> void:
+	stat_addends.clear()
+	stat_multipliers.clear()
+	fill_stat_modifier_arrays()
 	
 func calculate_stats() -> void:
 	var stat_curve_multiplyer: float = stat_curve.sample(float(level))
 	for i in base_stats.size():
 		var curved_stat: int = int(base_stats[i] * stat_curve_multiplyer)
-		current_stats[i] = int(curved_stat + stat_addends[i].total)
+		current_stats[i] = int(curved_stat * (1 + (stat_multipliers[i].total/100))) + stat_addends[i].total
 
 func _to_string() -> String:
 	var stat_list: String = ""

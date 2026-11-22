@@ -37,7 +37,7 @@ func _input(event: InputEvent) -> void:
 			character.set_direction(Vector2.DOWN)
 	
 	elif event.is_action_pressed("interact"):
-		print(character.stats.stat_addends)
+		print(character.stats.current_stats[Stats.Type.ATTACK])
 	elif event.is_action_pressed("quick_party"):
 		var collider: Node = character.ray_cast.get_collider()
 		if collider and collider.is_in_group("playable_characters"):
@@ -46,7 +46,7 @@ func _input(event: InputEvent) -> void:
 		character_manager.remove_from_parties(character)
 	elif event.is_action_pressed("tab"):
 		if tab_menu.visible:
-			hide_tab_manu()
+			hide_tab_menu()
 		else:
 			show_tab_menu()
 
@@ -84,29 +84,37 @@ func show_tab_menu() -> void:
 	set_physics_process(false)
 	tab_menu.show()
 
-func hide_tab_manu() -> void:
+func hide_tab_menu() -> void:
 	set_physics_process(true)
 	tab_menu.hide()
+
+func update_stats_display():
+	tab_menu.update_hp(character.stats.current_hp)
+	tab_menu.update_stats(character.stats.current_stats)
 
 func on_tab_menu_interaction(item: Item, id: TabMenu.ContextMenuOptions):
 	if id == TabMenu.ContextMenuOptions.WEAPON_EQUIP:
 		character.equip_weapon(item)
 		tab_menu.update_weapon(character.weapon)
 		tab_menu.update_items(character.items)
+		update_stats_display()
 	elif id == TabMenu.ContextMenuOptions.WEAPON_UNEQUIP:
 		character.unequip_weapon()
 		tab_menu.update_weapon(character.weapon)
 		tab_menu.update_items(character.items)
+		update_stats_display()
 	elif id == TabMenu.ContextMenuOptions.WEAPON_DROP:
 		pass
 	elif id == TabMenu.ContextMenuOptions.CHARM_EQUIP:
 		character.equip_charm(item)
 		tab_menu.update_charms(character.charms)
 		tab_menu.update_items(character.items)
+		update_stats_display()
 	elif id == TabMenu.ContextMenuOptions.CHARM_UNEQUIP:
 		character.unequip_charm(item)
 		tab_menu.update_charms(character.charms)
 		tab_menu.update_items(character.items)
+		update_stats_display()
 	elif id == TabMenu.ContextMenuOptions.CHARM_DROP:
 		pass
 	elif id == TabMenu.ContextMenuOptions.ITEM_USE:

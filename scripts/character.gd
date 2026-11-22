@@ -34,8 +34,15 @@ func reset_party() -> void:
 	party = [self]
 
 func update_stats() -> void:
+	stats.clear()
 	if weapon:
 		stats.add_addend(Stats.Type.ATTACK, weapon.attack_modifier)
+	for charm: Charm in charms:
+		for stat_mod in charm.stat_mods:
+			if stat_mod is StatAddend:
+				stats.add_addend(stat_mod.modified_stat, stat_mod)
+			elif stat_mod is StatMultiplier:
+				stats.add_multiplier(stat_mod.modified_stat, stat_mod)
 	stats.calculate_stats()
 
 func unequip_weapon() -> void:
