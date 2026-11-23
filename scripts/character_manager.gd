@@ -1,17 +1,19 @@
 extends Node
 
-@export var player_controller: Node
-@export var initial_character: CharacterBody2D
+@onready var player_controller: Node = %PlayerController
+@onready var initial_character: PlayableCharacter = player_controller.get_parent()
 
 @onready var characters: Array[Node] = get_tree().get_nodes_in_group("playable_characters")
-@onready var shift_menu: Control = $CanvasLayer/ShiftMenu
-@onready var item_list: VBoxContainer = $CanvasLayer/ShiftMenu/PanelContainer/VBoxContainer
+@onready var shift_menu: Control = %ShiftMenu
+@onready var item_list: VBoxContainer = %CharaList
 
 func _ready() -> void:
 	hide_shift_menu()
 	setup_shift_menu()
 	player_controller.character_manager = self
-	swap_character(initial_character)
+	#swap_character(initial_character)
+	player_controller.update_character()
+	update_character_collision_layers()
 	#update_character_collision_layers()
 
 func setup_shift_menu() -> void:
@@ -36,7 +38,9 @@ func hide_shift_menu():
 	shift_menu.hide()
 
 func swap_character(character: Node) -> void:
-	var camera: Camera2D = player_controller.get_parent().get_node("Camera")
+	var previous_character = player_controller.get_parent()
+	previous_character.set_idle(true)
+	var camera: Camera2D = previous_character.get_node("Camera")
 	player_controller.reparent(character)
 	player_controller.update_character()
 	camera.reparent(character)

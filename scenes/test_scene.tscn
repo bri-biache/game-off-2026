@@ -23,14 +23,13 @@ position = Vector2(492, 72)
 scale = Vector2(15.719963, 13.933183)
 texture = ExtResource("1_7ddre")
 
-[node name="CharacterManager" type="Node" parent="." unique_id=552836033 node_paths=PackedStringArray("player_controller", "initial_character")]
+[node name="CharacterManager" type="Node" parent="." unique_id=552836033]
 script = ExtResource("1_nd71p")
-player_controller = NodePath("../Character1/PlayerController")
-initial_character = NodePath("../Character1")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="CharacterManager" unique_id=2034485076]
 
 [node name="ShiftMenu" type="Control" parent="CharacterManager/CanvasLayer" unique_id=30976531]
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -43,7 +42,8 @@ offset_top = 127.0
 offset_right = 420.0
 offset_bottom = 234.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CharacterManager/CanvasLayer/ShiftMenu/PanelContainer" unique_id=341706458]
+[node name="CharaList" type="VBoxContainer" parent="CharacterManager/CanvasLayer/ShiftMenu/PanelContainer" unique_id=341706458]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Character2" parent="." unique_id=2076094643 instance=ExtResource("1_g7g4h")]
@@ -79,6 +79,7 @@ items = Array[ExtResource("8_pln1h")]([ExtResource("9_8gixj"), ExtResource("10_h
 [node name="Camera" type="Camera2D" parent="Character1" unique_id=1079825712]
 
 [node name="PlayerController" type="Node" parent="Character1" unique_id=1450404110]
+unique_name_in_owner = true
 script = ExtResource("2_j8ivh")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Character1/PlayerController" unique_id=444986069]
