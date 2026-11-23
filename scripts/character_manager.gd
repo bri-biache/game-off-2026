@@ -53,7 +53,7 @@ func update_character_collision_layers() -> void:
 func remove_from_parties(member: PlayableCharacter):
 	for character in characters:
 		character.remove_party_member(member)
-	member.reset_party()
+	member.leave_party()
 	update_character_collision_layers()
 
 func add_party_member(leader: PlayableCharacter, new_member: PlayableCharacter) -> void:

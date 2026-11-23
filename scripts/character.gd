@@ -2,6 +2,7 @@ class_name PlayableCharacter
 extends CharacterBody2D
 
 const RAYCAST_LENGTH: int = 90
+const TRACKER_LENGTH: int = 32
 
 @export var stats: Stats
 @export var weapon: Weapon
@@ -10,6 +11,7 @@ const RAYCAST_LENGTH: int = 90
 
 var party: Array[PlayableCharacter] = [self]
 var position_tracker: Array[Vector2]
+var direction_tracker: Array[Vector2]
 
 var direction: Vector2 = Vector2.DOWN: set = set_direction
 var is_idle: bool = true: set = set_idle
@@ -18,8 +20,10 @@ var is_idle: bool = true: set = set_idle
 @onready var animation_tree: AnimationTree = $AnimationTree
 
 func _ready() -> void:
-	position_tracker.resize(64)
+	position_tracker.resize(TRACKER_LENGTH)
 	position_tracker.fill(position)
+	direction_tracker.resize(TRACKER_LENGTH)
+	direction_tracker.fill(direction)
 	update_stats()
 
 func set_idle(idle: bool) -> void:
@@ -45,7 +49,11 @@ func remove_party_member(leaving_member: PlayableCharacter) -> void:
 
 func add_party(new_party: Array[PlayableCharacter]) -> void:
 	party.append_array(new_party)
-
+	
+func leave_party():
+	set_idle(true)
+	reset_party()
+	
 func reset_party() -> void:
 	party = [self]
 
