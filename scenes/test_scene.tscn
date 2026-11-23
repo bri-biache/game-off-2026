@@ -46,23 +46,6 @@ offset_bottom = 234.0
 [node name="VBoxContainer" type="VBoxContainer" parent="CharacterManager/CanvasLayer/ShiftMenu/PanelContainer" unique_id=341706458]
 layout_mode = 2
 
-[node name="Character1" parent="." unique_id=1264062262 instance=ExtResource("1_g7g4h")]
-position = Vector2(60, 53)
-weapon = ExtResource("4_qjeyg")
-charms = Array[ExtResource("5_gthg3")]([ExtResource("6_ntc4i"), ExtResource("7_u0xbq")])
-items = Array[ExtResource("8_pln1h")]([ExtResource("9_8gixj"), ExtResource("10_hf2sn"), ExtResource("6_ntc4i")])
-
-[node name="Camera" type="Camera2D" parent="Character1" unique_id=1079825712]
-
-[node name="PlayerController" type="Node" parent="Character1" unique_id=1450404110]
-script = ExtResource("2_j8ivh")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Character1/PlayerController" unique_id=444986069]
-
-[node name="TabMenu" parent="Character1/PlayerController/CanvasLayer" unique_id=757759385 instance=ExtResource("6_3qnke")]
-unique_name_in_owner = true
-visible = false
-
 [node name="Character2" parent="." unique_id=2076094643 instance=ExtResource("1_g7g4h")]
 modulate = Color(0.9333333, 1, 0, 1)
 position = Vector2(190, 165)
@@ -86,3 +69,20 @@ modulate = Color(0.9333334, 0, 1, 1)
 position = Vector2(92, 267)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1187093075]
+
+[node name="Character1" parent="." unique_id=1264062262 instance=ExtResource("1_g7g4h")]
+position = Vector2(60, 53)
+weapon = ExtResource("4_qjeyg")
+charms = Array[ExtResource("5_gthg3")]([ExtResource("6_ntc4i"), ExtResource("7_u0xbq")])
+items = Array[ExtResource("8_pln1h")]([ExtResource("9_8gixj"), ExtResource("10_hf2sn"), ExtResource("6_ntc4i")])
+
+[node name="Camera" type="Camera2D" parent="Character1" unique_id=1079825712]
+
+[node name="PlayerController" type="Node" parent="Character1" unique_id=1450404110]
+script = ExtResource("2_j8ivh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Character1/PlayerController" unique_id=444986069]
+
+[node name="TabMenu" parent="Character1/PlayerController/CanvasLayer" unique_id=757759385 instance=ExtResource("6_3qnke")]
+unique_name_in_owner = true
+visible = false

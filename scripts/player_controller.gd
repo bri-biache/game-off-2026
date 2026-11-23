@@ -55,12 +55,15 @@ func _physics_process(_delta: float) -> void:
 	character.velocity = input_direction * SPEED
 	character.move_and_slide()
 	if character.velocity != Vector2.ZERO:
+		character.set_idle(false)
 		character.position_tracker.pop_back()
 		character.position_tracker.push_front(character.position)
 		if character.party.size() > 1:
 			character.party[1].position = character.position_tracker[32]
 		if character.party.size() > 2:
 			character.party[2].position = character.position_tracker[63]
+	else:
+		character.set_idle(true)
 
 func update_character():
 	character = get_parent()

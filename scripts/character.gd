@@ -11,15 +11,31 @@ const RAYCAST_LENGTH: int = 90
 var party: Array[PlayableCharacter] = [self]
 var position_tracker: Array[Vector2]
 
+var direction: Vector2 = Vector2.DOWN: set = set_direction
+var is_idle: bool = true: set = set_idle
+
 @onready var ray_cast: RayCast2D = $RayCast
+@onready var animation_tree: AnimationTree = $AnimationTree
 
 func _ready() -> void:
 	position_tracker.resize(64)
 	position_tracker.fill(position)
 	update_stats()
 
-func set_direction(direction: Vector2) -> void:
+func set_idle(idle: bool) -> void:
+	is_idle = idle
+	if idle:
+		animation_tree.set("parameters/conditions/walk", false)
+		animation_tree.set("parameters/conditions/idle", true)
+	else:
+		animation_tree.set("parameters/conditions/idle", false)
+		animation_tree.set("parameters/conditions/walk", true)
+
+func set_direction(new_direction: Vector2) -> void:
+	direction = new_direction
 	ray_cast.target_position = direction * RAYCAST_LENGTH
+	animation_tree.set("parameters/Walk/blend_position", direction)
+	animation_tree.set("parameters/Idle/blend_position", direction)
 
 func add_party_member(new_member: PlayableCharacter) -> void:
 	party.append(new_member)
