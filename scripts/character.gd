@@ -41,6 +41,12 @@ func set_direction(new_direction: Vector2) -> void:
 	animation_tree.set("parameters/Walk/blend_position", direction)
 	animation_tree.set("parameters/Idle/blend_position", direction)
 
+func update_trackers() -> void:
+	position_tracker.pop_back()
+	position_tracker.push_front(position)
+	direction_tracker.pop_back()
+	direction_tracker.push_front(direction)
+
 func add_party_member(new_member: PlayableCharacter) -> void:
 	party.append(new_member)
 

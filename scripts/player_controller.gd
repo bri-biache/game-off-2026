@@ -56,16 +56,15 @@ func _physics_process(_delta: float) -> void:
 	character.move_and_slide()
 	if character.velocity != Vector2.ZERO:
 		update_party_animations(false)
-		character.position_tracker.pop_back()
-		character.position_tracker.push_front(character.position)
-		character.direction_tracker.pop_back()
-		character.direction_tracker.push_front(character.direction)
+		character.update_trackers()
 		if character.party.size() > 1:
 			character.party[1].position = character.position_tracker[int(float(PlayableCharacter.TRACKER_LENGTH)/2)]
 			character.party[1].set_direction(character.direction_tracker[int(float(PlayableCharacter.TRACKER_LENGTH)/2)])
+			character.party[1].update_trackers()
 		if character.party.size() > 2:
 			character.party[2].position = character.position_tracker[PlayableCharacter.TRACKER_LENGTH-1]
 			character.party[2].set_direction(character.direction_tracker[PlayableCharacter.TRACKER_LENGTH-1])
+			character.party[2].update_trackers()
 	else:
 		update_party_animations(true)
 
