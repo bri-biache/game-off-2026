@@ -1,0 +1,12 @@
+[gd_resource type="Theme" format=3 uid="uid://cr5tg0pgs8ldd"]
+
+[ext_resource type="FontFile" uid="uid://bvw5hnmrkn48q" path="res://assets/ui/fonts/Varnished.ttf" id="1_fwoo3"]
+[ext_resource type="StyleBox" uid="uid://bpg054hj45ry3" path="res://resources/ui/medium_panel.tres" id="2_2r7jl"]
+[ext_resource type="StyleBox" uid="uid://c3dycf67dxesa" path="res://resources/ui/small_panel.tres" id="3_hgxji"]
+
+[resource]
+Button/font_sizes/font_size = 8
+Button/fonts/font = ExtResource("1_fwoo3")
+Button/styles/hover = ExtResource("2_2r7jl")
+Button/styles/normal = ExtResource("3_hgxji")
+PanelContainer/styles/panel = ExtResource("2_2r7jl")
