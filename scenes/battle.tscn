@@ -1,15 +1,14 @@
 [gd_scene format=3 uid="uid://6bbca4gt5x4k"]
 
+[ext_resource type="Script" uid="uid://cvo4jyte4p81e" path="res://scripts/battle.gd" id="1_6vh42"]
 [ext_resource type="Texture2D" uid="uid://ckllug3apsc5n" path="res://assets/enemies/016_2.png" id="1_a12nh"]
+[ext_resource type="PackedScene" uid="uid://mp30jqx1wfxj" path="res://scenes/text_box.tscn" id="2_lpir7"]
 [ext_resource type="LabelSettings" uid="uid://cnhx85tqvihy3" path="res://resources/ui/character_name_label_setting.tres" id="2_p1qf1"]
-[ext_resource type="FontFile" uid="uid://bvw5hnmrkn48q" path="res://assets/ui/fonts/Varnished.ttf" id="3_a12nh"]
 [ext_resource type="Theme" uid="uid://cr5tg0pgs8ldd" path="res://resources/ui/battle_theme.tres" id="3_p1qf1"]
+[ext_resource type="PackedScene" uid="uid://di48w2n3ayt4p" path="res://scenes/character_action_box.tscn" id="4_lpir7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b4ekb"]
 bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_lpir7"]
-font = ExtResource("3_a12nh")
 
 [node name="Battle" type="Control" unique_id=1290769670]
 layout_mode = 3
@@ -18,8 +17,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_6vh42")
 
-[node name="Panel" type="Panel" parent="." unique_id=615483509]
+[node name="Background" type="Panel" parent="." unique_id=615483509]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,7 +28,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_b4ekb")
 
-[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1829548545]
+[node name="Margin" type="MarginContainer" parent="." unique_id=1829548545]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -40,15 +40,15 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="Sections" type="VBoxContainer" parent="MarginContainer2" unique_id=1300023702]
+[node name="Sections" type="VBoxContainer" parent="Margin" unique_id=1300023702]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Enemy" type="Control" parent="MarginContainer2/Sections" unique_id=1159404044]
+[node name="Enemy" type="Control" parent="Margin/Sections" unique_id=1159404044]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer2/Sections/Enemy" unique_id=1078557247]
+[node name="Sprite" type="TextureRect" parent="Margin/Sections/Enemy" unique_id=1078557247]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -67,124 +67,75 @@ offset_transform_scale = Vector2(2, 2)
 offset_transform_visual_only = false
 texture = ExtResource("1_a12nh")
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer2/Sections" unique_id=589340478]
-custom_maximum_size = Vector2(-1, 70)
-layout_mode = 2
-theme = ExtResource("3_p1qf1")
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/Sections/PanelContainer" unique_id=888661958]
+[node name="TextBox" parent="Margin/Sections" unique_id=1987117819 instance=ExtResource("2_lpir7")]
+custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer2/Sections/PanelContainer/MarginContainer" unique_id=602731159]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-size_flags_vertical = 1
-text = "This is an example sentence to test out this text box. I can see how much text can fit in this box and think about how many lines I would realistically need for this box to meet "
-label_settings = SubResource("LabelSettings_lpir7")
-autowrap_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/Sections" unique_id=1936717515]
+[node name="PlayerInputMargin" type="MarginContainer" parent="Margin/Sections" unique_id=1936717515]
 layout_mode = 2
 theme_override_constants/margin_left = 80
 theme_override_constants/margin_right = 80
 
-[node name="UI" type="HBoxContainer" parent="MarginContainer2/Sections/MarginContainer" unique_id=1086612805]
+[node name="PlayerInput" type="HBoxContainer" parent="Margin/Sections/PlayerInputMargin" unique_id=1086612805]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 80
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer2/Sections/MarginContainer/UI" unique_id=505636046]
+[node name="CharacterActionBox" parent="Margin/Sections/PlayerInputMargin/PlayerInput" unique_id=1511858207 instance=ExtResource("4_lpir7")]
+layout_mode = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="Margin/Sections/PlayerInputMargin/PlayerInput" unique_id=33696532]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme = ExtResource("3_p1qf1")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/Sections/MarginContainer/UI/PanelContainer" unique_id=2083753396]
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin/Sections/PlayerInputMargin/PlayerInput/PanelContainer2" unique_id=566338086]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 8
 
-[node name="Label" type="Label" parent="MarginContainer2/Sections/MarginContainer/UI/PanelContainer/VBoxContainer" unique_id=1629618143]
+[node name="Label" type="Label" parent="Margin/Sections/PlayerInputMargin/PlayerInput/PanelContainer2/VBoxContainer" unique_id=546276838]
 layout_mode = 2
 text = "Character"
 label_settings = ExtResource("2_p1qf1")
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/Sections/MarginContainer/UI/PanelContainer/VBoxContainer" unique_id=1608010371]
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin/Sections/PlayerInputMargin/PlayerInput/PanelContainer2/VBoxContainer" unique_id=1289640835]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="MarginContainer2/Sections/MarginContainer/UI/PanelContainer/VBoxContainer/VBoxContainer" unique_id=245199673]
+[node name="Button" type="Button" parent="Margin/Sections/PlayerInputMargin/PlayerInput/PanelContainer2/VBoxContainer/VBoxContainer" unique_id=1135650317]
 layout_mode = 2
 theme = ExtResource("3_p1qf1")
 text = "Attack"
 
-[node name="Button3" type="Button" parent="MarginContainer2/Sections/MarginContainer/UI/PanelContainer/VBoxContainer/VBoxContainer" unique_id=895818218]
+[node name="Button3" type="Button" parent="Margin/Sections/PlayerInputMargin/PlayerInput/PanelContainer2/VBoxContainer/VBoxContainer" unique_id=1519169795]
 layout_mode = 2
 theme = ExtResource("3_p1qf1")
 text = "Special"
 
-[node name="Button4" type="Button" parent="MarginContainer2/Sections/MarginContainer/UI/PanelContainer/VBoxContainer/VBoxContainer" unique_id=1791572155]
+[node name="Button4" type="Button" parent="Margin/Sections/PlayerInputMargin/PlayerInput/PanelContainer2/VBoxContainer/VBoxContainer" unique_id=1364738601]
 layout_mode = 2
 theme = ExtResource("3_p1qf1")
 text = "Call Out"
 
-[node name="Button5" type="Button" parent="MarginContainer2/Sections/MarginContainer/UI/PanelContainer/VBoxContainer/VBoxContainer" unique_id=899882793]
+[node name="Button5" type="Button" parent="Margin/Sections/PlayerInputMargin/PlayerInput/PanelContainer2/VBoxContainer/VBoxContainer" unique_id=66558312]
 layout_mode = 2
 theme = ExtResource("3_p1qf1")
 text = "Run Away"
 
-[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer2/Sections/MarginContainer/UI" unique_id=33696532]
+[node name="PanelContainer3" type="PanelContainer" parent="Margin/Sections/PlayerInputMargin/PlayerInput" unique_id=1956717355]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme = ExtResource("3_p1qf1")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/Sections/MarginContainer/UI/PanelContainer2" unique_id=566338086]
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin/Sections/PlayerInputMargin/PlayerInput/PanelContainer3" unique_id=515232049]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 8
 
-[node name="Label" type="Label" parent="MarginContainer2/Sections/MarginContainer/UI/PanelContainer2/VBoxContainer" unique_id=546276838]
-layout_mode = 2
-text = "Character"
-label_settings = ExtResource("2_p1qf1")
-horizontal_alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/Sections/MarginContainer/UI/PanelContainer2/VBoxContainer" unique_id=1289640835]
-layout_mode = 2
-
-[node name="Button" type="Button" parent="MarginContainer2/Sections/MarginContainer/UI/PanelContainer2/VBoxContainer/VBoxContainer" unique_id=1135650317]
-layout_mode = 2
-theme = ExtResource("3_p1qf1")
-text = "Attack"
-
-[node name="Button3" type="Button" parent="MarginContainer2/Sections/MarginContainer/UI/PanelContainer2/VBoxContainer/VBoxContainer" unique_id=1519169795]
-layout_mode = 2
-theme = ExtResource("3_p1qf1")
-text = "Special"
-
-[node name="Button4" type="Button" parent="MarginContainer2/Sections/MarginContainer/UI/PanelContainer2/VBoxContainer/VBoxContainer" unique_id=1364738601]
-layout_mode = 2
-theme = ExtResource("3_p1qf1")
-text = "Call Out"
-
-[node name="Button5" type="Button" parent="MarginContainer2/Sections/MarginContainer/UI/PanelContainer2/VBoxContainer/VBoxContainer" unique_id=66558312]
-layout_mode = 2
-theme = ExtResource("3_p1qf1")
-text = "Run Away"
-
-[node name="PanelContainer3" type="PanelContainer" parent="MarginContainer2/Sections/MarginContainer/UI" unique_id=1956717355]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-theme = ExtResource("3_p1qf1")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/Sections/MarginContainer/UI/PanelContainer3" unique_id=515232049]
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_constants/separation = 8
-
-[node name="Label" type="Label" parent="MarginContainer2/Sections/MarginContainer/UI/PanelContainer3/VBoxContainer" unique_id=217766877]
+[node name="Label" type="Label" parent="Margin/Sections/PlayerInputMargin/PlayerInput/PanelContainer3/VBoxContainer" unique_id=217766877]
 layout_mode = 2
 text = "No party member"
 label_settings = ExtResource("2_p1qf1")

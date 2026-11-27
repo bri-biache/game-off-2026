@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://di48w2n3ayt4p"]
+
+[ext_resource type="Theme" uid="uid://cr5tg0pgs8ldd" path="res://resources/ui/battle_theme.tres" id="1_xmfwm"]
+[ext_resource type="LabelSettings" uid="uid://cnhx85tqvihy3" path="res://resources/ui/character_name_label_setting.tres" id="2_82gq1"]
+
+[node name="CharacterActionBox" type="PanelContainer" unique_id=1511858207]
+custom_minimum_size = Vector2(80, 0)
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("1_xmfwm")
+
+[node name="CharacterBoxContents" type="VBoxContainer" parent="." unique_id=202536136]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 8
+
+[node name="CharacterName" type="Label" parent="CharacterBoxContents" unique_id=922974329]
+layout_mode = 2
+text = "Character"
+label_settings = ExtResource("2_82gq1")
+horizontal_alignment = 1
+
+[node name="ActionButtons" type="VBoxContainer" parent="CharacterBoxContents" unique_id=1942207008]
+layout_mode = 2
+
+[node name="Attack" type="Button" parent="CharacterBoxContents/ActionButtons" unique_id=1266292302]
+layout_mode = 2
+theme = ExtResource("1_xmfwm")
+text = "Attack"
+
+[node name="Special" type="Button" parent="CharacterBoxContents/ActionButtons" unique_id=393471844]
+layout_mode = 2
+theme = ExtResource("1_xmfwm")
+text = "Special"
+
+[node name="CallOut" type="Button" parent="CharacterBoxContents/ActionButtons" unique_id=1126943823]
+layout_mode = 2
+theme = ExtResource("1_xmfwm")
+text = "Call Out"
+
+[node name="RunAway" type="Button" parent="CharacterBoxContents/ActionButtons" unique_id=1227052553]
+layout_mode = 2
+theme = ExtResource("1_xmfwm")
+text = "Run Away"

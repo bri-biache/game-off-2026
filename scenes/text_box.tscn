@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://mp30jqx1wfxj"]
+
+[ext_resource type="Theme" uid="uid://cr5tg0pgs8ldd" path="res://resources/ui/battle_theme.tres" id="1_dyarx"]
+[ext_resource type="Script" uid="uid://ci7iakrqrh4h7" path="res://scripts/text_box.gd" id="2_3ojeh"]
+[ext_resource type="FontFile" uid="uid://bvw5hnmrkn48q" path="res://assets/ui/fonts/Varnished.ttf" id="2_qdwih"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lpir7"]
+font = ExtResource("2_qdwih")
+
+[node name="TextBox" type="PanelContainer" unique_id=1987117819]
+custom_maximum_size = Vector2(-1, 70)
+theme = ExtResource("1_dyarx")
+script = ExtResource("2_3ojeh")
+
+[node name="TextMargin" type="MarginContainer" parent="." unique_id=768332272]
+layout_mode = 2
+
+[node name="Text" type="Label" parent="TextMargin" unique_id=987954076]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+label_settings = SubResource("LabelSettings_lpir7")
+autowrap_mode = 2
