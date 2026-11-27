@@ -9,4 +9,5 @@ Button/font_sizes/font_size = 8
 Button/fonts/font = ExtResource("1_fwoo3")
 Button/styles/hover = ExtResource("2_2r7jl")
 Button/styles/normal = ExtResource("3_hgxji")
+Button/styles/pressed = ExtResource("2_2r7jl")
 PanelContainer/styles/panel = ExtResource("2_2r7jl")

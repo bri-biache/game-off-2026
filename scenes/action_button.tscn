@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c7d0gwxmljfst"]
+
+[ext_resource type="Theme" uid="uid://cr5tg0pgs8ldd" path="res://resources/ui/battle_theme.tres" id="1_js6u8"]
+[ext_resource type="Script" uid="uid://ly70mh7fp05h" path="res://scripts/action_button.gd" id="2_u7r83"]
+
+[node name="Action" type="Button" unique_id=1852361693]
+theme = ExtResource("1_js6u8")
+toggle_mode = true
+text = "Attack"
+script = ExtResource("2_u7r83")

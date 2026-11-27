@@ -9,10 +9,10 @@ var time_elapsed: float = 0.0
 
 @onready var label: Label = %Text
 
-func _ready() -> void:
-	display_text("Hello, world!")
-	await text_advanced
-	display_text("This is the next sentence")
+#func _ready() -> void:
+	#display_text("Hello, world!")
+	#await text_advanced
+	#display_text("This is the next sentence")
 
 func display_text(msg: String) -> void:
 	label.visible_ratio = 0.0
@@ -21,6 +21,9 @@ func display_text(msg: String) -> void:
 	set_process(true)
 	await text_displayed
 	set_process(false)
+
+func clear() -> void:
+	label.text = ""
 
 func _process(delta: float) -> void:
 	time_elapsed += delta

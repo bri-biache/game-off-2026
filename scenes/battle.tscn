@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://mp30jqx1wfxj" path="res://scenes/text_box.tscn" id="2_lpir7"]
 [ext_resource type="LabelSettings" uid="uid://cnhx85tqvihy3" path="res://resources/ui/character_name_label_setting.tres" id="2_p1qf1"]
 [ext_resource type="Theme" uid="uid://cr5tg0pgs8ldd" path="res://resources/ui/battle_theme.tres" id="3_p1qf1"]
+[ext_resource type="Script" uid="uid://jovv257duvbk" path="res://scripts/player_input.gd" id="4_4k1nj"]
 [ext_resource type="PackedScene" uid="uid://di48w2n3ayt4p" path="res://scenes/character_action_box.tscn" id="4_lpir7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b4ekb"]
@@ -68,6 +69,7 @@ offset_transform_visual_only = false
 texture = ExtResource("1_a12nh")
 
 [node name="TextBox" parent="Margin/Sections" unique_id=1987117819 instance=ExtResource("2_lpir7")]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 
@@ -77,9 +79,11 @@ theme_override_constants/margin_left = 80
 theme_override_constants/margin_right = 80
 
 [node name="PlayerInput" type="HBoxContainer" parent="Margin/Sections/PlayerInputMargin" unique_id=1086612805]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 80
+script = ExtResource("4_4k1nj")
 
 [node name="CharacterActionBox" parent="Margin/Sections/PlayerInputMargin/PlayerInput" unique_id=1511858207 instance=ExtResource("4_lpir7")]
 layout_mode = 2

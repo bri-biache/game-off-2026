@@ -2,12 +2,15 @@
 
 [ext_resource type="Theme" uid="uid://cr5tg0pgs8ldd" path="res://resources/ui/battle_theme.tres" id="1_xmfwm"]
 [ext_resource type="LabelSettings" uid="uid://cnhx85tqvihy3" path="res://resources/ui/character_name_label_setting.tres" id="2_82gq1"]
+[ext_resource type="Script" uid="uid://yigb54wkgc4b" path="res://scripts/character_action_box.gd" id="2_iolb1"]
+[ext_resource type="PackedScene" uid="uid://c7d0gwxmljfst" path="res://scenes/action_button.tscn" id="4_iolb1"]
 
 [node name="CharacterActionBox" type="PanelContainer" unique_id=1511858207]
 custom_minimum_size = Vector2(80, 0)
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme = ExtResource("1_xmfwm")
+script = ExtResource("2_iolb1")
 
 [node name="CharacterBoxContents" type="VBoxContainer" parent="." unique_id=202536136]
 layout_mode = 2
@@ -21,24 +24,17 @@ label_settings = ExtResource("2_82gq1")
 horizontal_alignment = 1
 
 [node name="ActionButtons" type="VBoxContainer" parent="CharacterBoxContents" unique_id=1942207008]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Attack" type="Button" parent="CharacterBoxContents/ActionButtons" unique_id=1266292302]
+[node name="Attack" parent="CharacterBoxContents/ActionButtons" unique_id=1852361693 instance=ExtResource("4_iolb1")]
 layout_mode = 2
-theme = ExtResource("1_xmfwm")
-text = "Attack"
 
-[node name="Special" type="Button" parent="CharacterBoxContents/ActionButtons" unique_id=393471844]
+[node name="Attack2" parent="CharacterBoxContents/ActionButtons" unique_id=2097928848 instance=ExtResource("4_iolb1")]
 layout_mode = 2
-theme = ExtResource("1_xmfwm")
-text = "Special"
 
-[node name="CallOut" type="Button" parent="CharacterBoxContents/ActionButtons" unique_id=1126943823]
+[node name="Attack3" parent="CharacterBoxContents/ActionButtons" unique_id=1996881293 instance=ExtResource("4_iolb1")]
 layout_mode = 2
-theme = ExtResource("1_xmfwm")
-text = "Call Out"
 
-[node name="RunAway" type="Button" parent="CharacterBoxContents/ActionButtons" unique_id=1227052553]
+[node name="Attack4" parent="CharacterBoxContents/ActionButtons" unique_id=1116031464 instance=ExtResource("4_iolb1")]
 layout_mode = 2
-theme = ExtResource("1_xmfwm")
-text = "Run Away"
